@@ -222,6 +222,7 @@ silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 let fortran_free_source=1
 " automatically set gnuplot filetype for *.gnu files
 autocmd BufNewFile,BufRead *.gnu   setlocal filetype=gnuplot
+autocmd BufNewFile,BufRead *.gp   setlocal filetype=gnuplot
 " redefines comment string for gnuplot files to #
 autocmd FileType gnuplot setlocal commentstring=#\ %s
 " redefines comment string for c,cpp,c#,java to //
