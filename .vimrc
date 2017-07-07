@@ -3,7 +3,7 @@ execute pathogen#infect()
 
 " for personal commands use <leader>
 let mapleader = "-"
- 
+
 
 " NERDTree
 " looks
@@ -13,7 +13,7 @@ let NERDTreeDirArrows = 1
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 " open NERDTree with Ctrl n
 nnoremap <C-N> :NERDTreeToggle<CR>
- 
+
 
 " CtrlP
 " start in regexp and filename search rd>
@@ -46,7 +46,7 @@ let g:rainbow_conf = {
 \ 'ctermfgs': ['red', 'cyan', 'yellow'],
 \ 'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/'],
 \}
- 
+
 
 " vim-notes
 " instructions with :Note
@@ -54,8 +54,8 @@ let g:rainbow_conf = {
 let g:notes_suffix='.txt'
 let g:notes_directories = ['~/Dropbox/shared Notes']
 let g:notes_conceal_url=0
- 
- 
+
+
 " light-line configuration
 " collapes ff,ft,fe,mode if horizontal window size is too small
 let g:lightline = {
@@ -66,15 +66,15 @@ let g:lightline = {
       \   'mode': 'LightlineMode',
       \ },
       \ }
- 
+
 function! LightlineFileformat()
     return winwidth(0) > 70 ? &fileformat : ''
 endfunction
- 
+
 function! LightlineFiletype()
   return winwidth(0) > 70 ? (&filetype !=# '' ? &filetype : 'no ft') : ''
 endfunction
- 
+
 function! LightlineFileencoding()
   return winwidth(0) > 70 ? (&fenc !=# '' ? &fenc : &enc) : ''
 endfunction
@@ -82,7 +82,7 @@ endfunction
 function! LightlineMode()
   return winwidth(0) > 60 ? lightline#mode() : ''
 endfunction
- 
+
 
 " EasyMotion configuration
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
@@ -100,11 +100,11 @@ map <Leader>w <Plug>(easymotion-overwin-w)
 colorscheme molokai
 let g:molokai_original=1
 autocmd ColorScheme * highlight Visual ctermbg=245
- 
+
 " set background=dark
 " colorscheme solarized
 " call togglebg#map("<F5>")
- 
+
 
 " Vi IMproved - standard settings
 " compatible mode deactivates all enhancements and improvements of VIM
@@ -186,7 +186,7 @@ set pastetoggle=<F2>
 set nrformats-=octal
 hi MatchParen ctermbg=000 cterm=bold ctermfg=015
 
- 
+
 " key mappings
 " Y to be consistent with D and C
 map Y y$
@@ -214,10 +214,10 @@ vnoremap <C-S> <Esc>:w<CR>gv
 " use explicit paths to prevent PATH-modification attacks
 cnoremap w!! w !sudo /usr/bin/tee > /dev/null %
 cnoremap W!! w !sudo /usr/bin/tee > /dev/null %
- 
+
 " mapping for vim-repeat
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
- 
+
 " language specific
 let fortran_free_source=1
 " automatically set gnuplot filetype for *.gnu files
