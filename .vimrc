@@ -28,6 +28,8 @@ let g:ctrlp_regexp = 1
 let g:ctrlp_root_markers = ['.ctrlp']
 " jump to file instead of opening a new instance
 let g:ctrlp_switch_buffer = 'Et'
+" ignore .git
+let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 " The Silver Searcher
 " sudo apt-get install silversearcher-ag
 if executable("ag")
