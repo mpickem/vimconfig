@@ -61,11 +61,16 @@ let g:notes_conceal_url=0
 " light-line configuration
 " collapes ff,ft,fe,mode if horizontal window size is too small
 let g:lightline = {
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filenMe', 'modified' ] ]
+      \ },
       \ 'component_function': {
       \   'fileformat': 'LightlineFileformat',
       \   'filetype': 'LightlineFiletype',
       \   'fileencoding': 'LightlineFileencoding',
       \   'mode': 'LightlineMode',
+      \   'gitbranch': 'LightlineGit',
       \ },
       \ }
 
@@ -83,6 +88,10 @@ endfunction
 
 function! LightlineMode()
   return winwidth(0) > 60 ? lightline#mode() : ''
+endfunction
+
+function! LightlineGit()
+  return winwidth(0) > 60 ? gitbranch#name() : ''
 endfunction
 
 
