@@ -63,7 +63,7 @@ let g:notes_conceal_url=0
 let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filenMe', 'modified' ] ]
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
       \ },
       \ 'component_function': {
       \   'fileformat': 'LightlineFileformat',
@@ -91,7 +91,7 @@ function! LightlineMode()
 endfunction
 
 function! LightlineGit()
-  return winwidth(0) > 60 ? gitbranch#name() : ''
+  return winwidth(0) > 60 ? fugitive#head() : ''
 endfunction
 
 
