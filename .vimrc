@@ -1,5 +1,32 @@
-" Pathogen setup
-execute pathogen#infect()
+" Vim-plug setup
+" Info at https://github.com/junegunn/vim-plug
+" for Unix this command is required
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+" Directory for plugins
+call plug#begin('~/.vim/plugged')
+
+" Plugins
+Plug 'vim-scripts/argtextobj.vim'
+Plug 'vim-scripts/BufOnly.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'vim-scripts/gnuplot.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'tomasr/molokai'
+Plug 'scrooloose/nerdtree'
+Plug 'luochen1990/rainbow'
+Plug 'tpope/vim-commentary'
+Plug 'easymotion/vim-easymotion'
+Plug 'tpope/vim-fugitive'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'bronson/vim-trailing-whitespace'
+
+" Initialize plugin system
+call plug#end()
+
 
 " for personal commands use <leader>
 let mapleader = "-"
