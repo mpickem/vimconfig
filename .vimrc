@@ -13,7 +13,8 @@ Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/gnuplot.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tomasr/molokai'
-Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'joshdick/onedark.vim'
 Plug 'luochen1990/rainbow'
 Plug 'tpope/vim-commentary'
 Plug 'easymotion/vim-easymotion'
@@ -23,6 +24,7 @@ Plug 'xolox/vim-notes'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'bronson/vim-trailing-whitespace'
+
 
 " Initialize plugin system
 call plug#end()
@@ -101,6 +103,8 @@ let g:lightline = {
       \ },
       \ }
 
+      " \ 'colorscheme': 'onedark',
+
 function! LightlineFileformat()
     return winwidth(0) > 70 ? &fileformat : ''
 endfunction
@@ -135,13 +139,17 @@ map <Leader>w <Plug>(easymotion-overwin-w)
 
 
 " colorscheme
-colorscheme molokai
-let g:molokai_original=1
-autocmd ColorScheme * highlight Visual ctermbg=245
+" colorscheme molokai
+" let g:molokai_original=1
+" autocmd ColorScheme * highlight Visual ctermbg=245
 
-" set background=dark
-" colorscheme solarized
-" call togglebg#map("<F5>")
+let g:onedark_color_overrides = {
+  \ "white":{"gui": "#000000", "cterm": "255", "cterm16": "15"},
+  \}
+let g:onedark_termcolors = 256
+let g:onedark_terminal_italics = 0
+colorscheme onedark
+
 
 
 " Vi IMproved - standard settings
