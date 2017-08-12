@@ -1,6 +1,5 @@
 " Vim-plug setup
 " Info at https://github.com/junegunn/vim-plug
-" for Unix this command is required
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 "     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 " Directory for plugins
@@ -49,7 +48,7 @@ nnoremap <C-N> :NERDTreeToggle<CR>
 let g:ctrlp_by_filename = 1
 let g:ctrlp_regexp = 1
 " show hidden files in searches
-"__ let g:ctrlp_show_hidden = 1
+let g:ctrlp_show_hidden = 1
 " working directory = where vim was started
 "__ let g:ctrlp_working_path_mode = 0
 " working directory = until .ctrlp is found
@@ -92,9 +91,13 @@ let g:notes_conceal_url=0
 let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+      \   'right': [ [ 'lineinfo' ],
+      \              [ 'percent' ],
+      \              [ 'fileformat', 'filencoding', 'filetype' ] ]
       \ },
       \ 'component_function': {
+      \   'filename': 'LightlineFilename',
       \   'fileformat': 'LightlineFileformat',
       \   'filetype': 'LightlineFiletype',
       \   'fileencoding': 'LightlineFileencoding',
@@ -104,9 +107,12 @@ let g:lightline = {
       \ }
 
       " \ 'colorscheme': 'onedark',
+function! LightlineFilename()
+  return expand('%')
+endfunction
 
 function! LightlineFileformat()
-    return winwidth(0) > 70 ? &fileformat : ''
+  return winwidth(0) > 70 ? &fileformat : ''
 endfunction
 
 function! LightlineFiletype()
