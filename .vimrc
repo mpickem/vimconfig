@@ -253,10 +253,6 @@ cnoremap W w
 cnoremap Q q
 " Ctrl L deactivates highlighting after a search
 nnoremap <C-L> :nohl<CR><C-L>
-" Ctrl S saves in any mode
-inoremap <C-S> <Esc>:w<CR>a
-nnoremap <C-S> :w<CR>
-vnoremap <C-S> <Esc>:w<CR>gv
 " <CR> ... Carriage Return ... same as <Return> and <Enter>
 " stty -ixon  is required in the bashrc file to disable flow control
 
