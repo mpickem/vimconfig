@@ -82,7 +82,7 @@ let g:rainbow_conf = {
 " instructions with :Note
 " open note with ':edit note:xxxx' where xxxx is a re in the title
 let g:notes_suffix='.txt'
-let g:notes_directories = ['~/Dropbox/shared Notes']
+" let g:notes_directories = ['~/Dropbox/shared Notes']
 let g:notes_conceal_url=0
 
 
@@ -168,6 +168,8 @@ filetype plugin on
 filetype indent off
 " Enable syntax highlighting
 syntax enable
+" Disable showing mode since its already displayed in lightline
+set noshowmode
 " Better command-line completion
 set wildmenu
 set wildmode=longest,list,full
