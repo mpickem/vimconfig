@@ -6,7 +6,6 @@
 call plug#begin('~/.vim/plugged')
 
 " Plugins
-Plug 'vim-scripts/argtextobj.vim'
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/gnuplot.vim'
@@ -15,6 +14,7 @@ Plug 'tomasr/molokai'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'joshdick/onedark.vim'
 Plug 'luochen1990/rainbow'
+Plug 'wellle/targets.vim'
 Plug 'tpope/vim-commentary'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
@@ -143,6 +143,16 @@ map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 map <Leader>w <Plug>(easymotion-overwin-w)
 
+" targets.vim configuration
+let g:targets_aiAI = 'aiAI' " around inner
+let g:targets_nlNL = 'nlNL' " next last -- e.g. cinB
+let g:targets_pairs = '()b {}B [] <>' " allowed pairs
+let g:targets_quotes = '" '' `' " allowed quotes
+let g:targets_seperator = ', . ; : + - = ~ * # / | \ & $' " allowed seperators
+let g:targets_tagTrigger = 't' " tag = t
+let g:targets_argTrigger = 'a' " argument = a
+let g:targets_argSeparator = ',' " arguments are only those which are seperated by ,
+
 
 " colorscheme
 " colorscheme molokai
@@ -155,6 +165,7 @@ let g:onedark_color_overrides = {
 let g:onedark_termcolors = 256
 let g:onedark_terminal_italics = 0
 colorscheme onedark
+hi MatchParen ctermbg=000 cterm=bold ctermfg=015
 
 
 
@@ -234,11 +245,8 @@ set expandtab
 set t_ut=
 " Use <F2> to toggle between 'paste' and 'nopaste' in INSERT MODE
 set pastetoggle=<F2>
-" Disable these stupid matching parenthesis which only clutter the screen
-" au VimEnter * NoMatchParen
 " do not increment octal numbers (start with 0 - eg. 0647)
 set nrformats-=octal
-hi MatchParen ctermbg=000 cterm=bold ctermfg=015
 
 
 " key mappings
