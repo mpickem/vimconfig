@@ -159,6 +159,10 @@ let g:targets_argSeparator = ',' " arguments are only those which are seperated 
 " let g:molokai_original=1
 " autocmd ColorScheme * highlight Visual ctermbg=245
 
+let s:black = { "gui": "#282c34", "cterm": "239", "cterm16": "8" }
+let s:yellow = { "gui": "#61afef", "cterm": "226", "cterm16" : "011" }
+autocmd Colorscheme * call onedark#set_highlight("DiffChange", {"fg": s:yellow, "bg": s:black})
+autocmd Colorscheme * call onedark#set_highlight("DiffText", {"bg": s:yellow, "fg": s:black})
 let g:onedark_color_overrides = {
   \ "white":{"gui": "#000000", "cterm": "255", "cterm16": "15"},
   \}
