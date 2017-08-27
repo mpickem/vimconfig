@@ -1,8 +1,6 @@
-" Vim-plug setup
-" Info at https://github.com/junegunn/vim-plug
-" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-"     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-" Directory for plugins
+" Vim-plug
+" github.com/junegunn/vim-plug
+" directory for plugins
 call plug#begin('~/.vim/plugged')
 
 " Plugins
@@ -26,7 +24,6 @@ Plug 'tpope/vim-surround'
 
 " Experimental Plugins
 " Plug 'bronson/vim-trailing-whitespace'
-
 
 " Initialize plugin system
 call plug#end()
@@ -274,11 +271,6 @@ map Y y$
 set foldlevelstart=-
 nnoremap <Space> za
 vnoremap <Space> za
-" to prevent typos
-cnoremap WQ wq
-cnoremap Wq wq
-cnoremap W w
-cnoremap Q q
 " Ctrl L deactivates highlighting after a search
 nnoremap <C-L> :nohl<CR><C-L>
 " <CR> ... Carriage Return ... same as <Return> and <Enter>
@@ -295,13 +287,24 @@ cnoremap W!! w !sudo /usr/bin/tee > /dev/null %
 silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
 
 " language specific
-let fortran_free_source=1
-" automatically set gnuplot filetype for *.gnu files
-autocmd BufNewFile,BufRead *.gnu   setlocal filetype=gnuplot
+autocmd BufNewFile,BufRead *.gnu  setlocal filetype=gnuplot
 autocmd BufNewFile,BufRead *.gp   setlocal filetype=gnuplot
-" redefines comment string for gnuplot files to #
 autocmd FileType gnuplot setlocal commentstring=#\ %s
-" redefines comment string for c,cpp,c#,java to //
+
+let fortran_free_source=1
+autocmd Filetype fortran setlocal commentstring=!\ %s
+
 autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
-" highlight columns above 80 ... Error is colorscheme specific already
-"__match Error /\%81v.\+/
+
+autocmd Filetype python setlocal commentstring=#\ %s
+nnoremap <Leader>r :vnew<CR>Ioutput of <C-R>#<Esc>:r!python #<CR><C-W><C-W>
+nnoremap <Leader>c <C-W><C-h>ZQ
+au BufNewFile,BufRead *.py
+  \ set tabstop=4 |
+  \ set softtabstop=4 |
+  \ set shiftwidth=4 |
+  \ set textwidth=79 |
+  \ set foldmethod=indent |
+  \ set foldlevel=99 |
+  \ let &colorcolumn="80,".join(range(120,999),",") |
+  \ highlight ColorColumn ctermbg=236
