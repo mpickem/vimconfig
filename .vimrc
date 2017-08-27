@@ -158,10 +158,7 @@ let g:targets_argSeparator = ',' " arguments are only those which are seperated 
 
 
 " fugitive specific
-autocmd User fugitive
-  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
-  \   nnoremap <buffer> .. :edit %:h<CR> |
-  \ endif
+nnoremap <leader>u :edit %:h<CR>
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
 
