@@ -23,7 +23,9 @@ Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-Plug 'bronson/vim-trailing-whitespace'
+
+" Experimental Plugins
+" Plug 'bronson/vim-trailing-whitespace'
 
 
 " Initialize plugin system
@@ -31,7 +33,7 @@ call plug#end()
 
 
 " for personal commands use <leader>
-let mapleader = ","
+let mapleader = "ö"
 
 
 " NERDTree
