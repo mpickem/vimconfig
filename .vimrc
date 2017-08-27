@@ -18,6 +18,7 @@ Plug 'wellle/targets.vim'
 Plug 'tpope/vim-commentary'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-fugitive'
+Plug 'michaeljsmith/vim-indent-object'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'tpope/vim-repeat'
@@ -30,7 +31,7 @@ call plug#end()
 
 
 " for personal commands use <leader>
-let mapleader = "-"
+let mapleader = ","
 
 
 " NERDTree
@@ -143,6 +144,9 @@ map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 map <Leader>w <Plug>(easymotion-overwin-w)
 
+
+" additional text object
+" vim-indent-object adds indent (i)
 " targets.vim configuration
 let g:targets_aiAI = 'aiAI' " around inner
 let g:targets_nlNL = 'nlNL' " next last -- e.g. cinB
@@ -152,6 +156,14 @@ let g:targets_seperator = ', . ; : + - = ~ * # / | \ & $' " allowed seperators
 let g:targets_tagTrigger = 't' " tag = t
 let g:targets_argTrigger = 'a' " argument = a
 let g:targets_argSeparator = ',' " arguments are only those which are seperated by ,
+
+
+" fugitive specific
+autocmd User fugitive
+  \ if fugitive#buffer().type() =~# '^\%(tree\|blob\)$' |
+  \   nnoremap <buffer> .. :edit %:h<CR> |
+  \ endif
+autocmd BufReadPost fugitive://* set bufhidden=delete
 
 
 " colorscheme
