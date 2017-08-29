@@ -1,8 +1,12 @@
-" Vim-plug
+" vim:fdm=marker
+" .vimrc maintained by Matthias Pickem
+
+" Plugins {{{
+
+" vim-plug
 " github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged') " directory for plugins
 
-" Plugins
 Plug 'vim-scripts/BufOnly.vim'
 Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/gnuplot.vim'
@@ -27,22 +31,27 @@ Plug 'tpope/vim-surround'
 " Initialize plugin system
 call plug#end()
 
+" }}}
+
+" Mapleader {{{
 
 " for personal commands use <leader>
 let mapleader = "ö"
 
+" }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NERDTree configuration {{{
 
-" Plugin Configurations
-" NERDTree
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif  " automatically close tab if NERDTree is the only window left
+" automatically close tab if NERDTree is the only window left
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 nnoremap <C-N> :NERDTreeToggle<CR>
 
+" }}}
 
-" CtrlP
+" CtrlP configuration {{{
+
 let g:ctrlp_by_filename = 1
 let g:ctrlp_regexp = 1 " start in regexp and filename search rd>
 let g:ctrlp_show_hidden = 1 " show hidden files in searches
@@ -55,8 +64,10 @@ if executable("ag")
   let g:ctrlp_use_caching = 0 " ag is fast enough that CtrlP doesn't need to cache
 endif
 
+" }}}
 
-" rainbow parenthesis
+" Rainbow parenthesis configuration {{{
+
 let g:rainbow_active = 1
 let g:rainbow_conf = {
   \ 'ctermfgs': ['red', 'cyan', 'yellow'],
@@ -64,15 +75,20 @@ let g:rainbow_conf = {
   \}
 
 
-" vim-notes
+" }}}
+
+" Vim-notes configuration {{{
+
 " instructions with :Note
 " open note with ':edit note:xxxx' where xxxx is a re in the title
 let g:notes_suffix='.txt'
 " let g:notes_directories = ['~/Dropbox/shared Notes']
 let g:notes_conceal_url=0
 
+" }}}
 
-" light-line configuration
+" Light-line configuration {{{
+
 " collapes ff,ft,fe,mode if horizontal window size is too small
 let g:lightline = {
   \ 'active': {
@@ -117,8 +133,10 @@ function! LightlineGit()
   return winwidth(0) > 60 ? fugitive#head() : ''
 endfunction
 
+" }}}
 
-" EasyMotion configuration
+" EasyMotion configuration {{{
+
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 let g:EasyMotion_smartcase = 1
 map <Leader>s <Plug>(easymotion-overwin-f)
@@ -129,10 +147,10 @@ map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 map <Leader>w <Plug>(easymotion-overwin-w)
 
+" }}}
 
-" additional text object
-" vim-indent-object adds indent (i)
-" targets.vim configuration
+" Targets.vim configuration {{{
+
 let g:targets_aiAI = 'aiAI' " around inner
 let g:targets_nlNL = 'nlNL' " next last -- e.g. cinB
 let g:targets_pairs = '()b {}B [] <>' " allowed pairs
@@ -142,15 +160,15 @@ let g:targets_tagTrigger = 't' " tag = t
 let g:targets_argTrigger = 'a' " argument = a
 let g:targets_argSeparator = ',' " arguments are only those which are seperated by ,
 
+" }}}
 
-" fugitive specific
+" Fugitive configuration {{{
+
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
+" }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-" colorscheme
+" Colorscheme {{{
 
 " colorscheme molokai
 " let g:molokai_original=1
@@ -167,15 +185,14 @@ let g:onedark_termcolors = 256
 let g:onedark_terminal_italics = 0
 
 colorscheme onedark
-set t_Co=256 " terminal 256 colors
-set t_ut=
+set t_Co=256 " 256 colors terminal 
+set t_ut=    " necessary for tmux (disabling Background Clear Erase BCE)
 hi MatchParen ctermbg=000 cterm=bold ctermfg=015
 
+" }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vi IMproved settings {{{
 
-
-" Vi IMproved
 set nocompatible " compatible mode deactivates all enhancements and improvements of VIM
 filetype on
 filetype plugin on
@@ -219,11 +236,10 @@ let &l:softtabstop = s:tabwidth
 
 set nrformats-=octal " do not increment octal numbers (start with 0 - eg. 0647)
 
+" }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Personal key mappings {{{
 
-
-" key mappings
 " Use <F2> to toggle between 'paste' and 'nopaste' in INSERT MODE
 set pastetoggle=<F2>
 " Y to be consistent with D and C
@@ -237,11 +253,9 @@ nnoremap <C-L> :nohl<CR><C-L>
 " Allow saving of files as sudo when I forgot to start vim using sudo
 cnoremap w!! w !sudo /usr/bin/tee > /dev/null %
 
+" }}}
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-" language specific
+" Language specific settings {{{
 autocmd BufNewFile,BufRead *.gnu  setlocal filetype=gnuplot
 autocmd BufNewFile,BufRead *.gp   setlocal filetype=gnuplot
 autocmd FileType gnuplot setlocal commentstring=#\ %s
@@ -264,6 +278,4 @@ au BufNewFile,BufRead *.py
   \ let &colorcolumn="80,".join(range(120,999),",") |
   \ highlight ColorColumn ctermbg=236
 
-
-" mapping for vim-repeat - at the end of .vimrc
-silent! call repeat#set("\<Plug>MyWonderfulMap", v:count)
+" }}}
