@@ -53,7 +53,7 @@ nnoremap <C-N> :NERDTreeToggle<CR>
 " CtrlP configuration {{{
 
 let g:ctrlp_by_filename = 1
-let g:ctrlp_regexp = 1 " start in regexp and filename search rd>
+let g:ctrlp_regexp = 0 " start in regexp and filename search >d>
 let g:ctrlp_show_hidden = 1 " show hidden files in searches
 let g:ctrlp_switch_buffer = 'Et' " jump to file instead of opening a new instance
 let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
@@ -73,7 +73,6 @@ let g:rainbow_conf = {
   \ 'ctermfgs': ['red', 'cyan', 'yellow'],
   \ 'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/'],
   \}
-
 
 " }}}
 
@@ -194,7 +193,6 @@ hi MatchParen ctermbg=000 cterm=bold ctermfg=015
 " Vi IMproved settings {{{
 
 set nocompatible " compatible mode deactivates all enhancements and improvements of VIM
-filetype on
 filetype plugin on
 filetype indent off
 syntax enable " Enable syntax highlighting
@@ -228,7 +226,6 @@ set t_vb=
 set backspace=indent,eol,start " Allow backspacing over autoindent, line breaks and start of insert
 set autoindent " When opening a new line and no filetype-specific indenting is enabled, keep the same indent as the line you're currently on.
 set expandtab
-set shiftround
 let s:tabwidth=2
 let &l:tabstop = s:tabwidth
 let &l:shiftwidth = s:tabwidth
