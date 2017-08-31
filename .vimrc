@@ -63,6 +63,7 @@ if executable("ag")
   let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup  -g ""' " Use ag in CtrlP for listing files.
   let g:ctrlp_use_caching = 0 " ag is fast enough that CtrlP doesn't need to cache
 endif
+nnoremap <leader><Space> :CtrlPTag<CR>
 
 " }}}
 
@@ -232,6 +233,7 @@ let &l:shiftwidth = s:tabwidth
 let &l:softtabstop = s:tabwidth
 
 set nrformats-=octal " do not increment octal numbers (start with 0 - eg. 0647)
+set tags=./tags,./TAGS,tags,TAGS,tags;$HOME,TAGS;$HOME
 
 " }}}
 
