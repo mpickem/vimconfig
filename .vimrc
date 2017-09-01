@@ -56,7 +56,10 @@ let g:ctrlp_by_filename = 1
 let g:ctrlp_regexp = 0 " start in regexp and filename search >d>
 let g:ctrlp_show_hidden = 1 " show hidden files in searches
 let g:ctrlp_switch_buffer = 'Et' " jump to file instead of opening a new instance
-let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+let g:ctrlp_custom_ignore = {
+  \ 'dir': '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(mod|o|hdf5)$',
+  \ }
 " The Silver Searcher -- silversearcher-ag
 if executable("ag")
   set grepprg=ag\ --nogroup\ --nocolor " Use ag over grep
@@ -211,7 +214,7 @@ set confirm " Instead of failing a command because of unsaved changes, instead r
 
 set wildmenu " Better command-line completion
 set wildmode=longest,list,full
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pdf,*.png,*.jpg
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pdf,*.png,*.jpg,*.o,*.mod,*.tar,*.eps
 
 set hlsearch " highlight search results
 set ignorecase " Use case insensitive search, except when using capital letters
