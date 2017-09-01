@@ -155,13 +155,16 @@ map <Leader>w <Plug>(easymotion-overwin-w)
 " Targets.vim configuration {{{
 
 let g:targets_aiAI = 'aiAI' " around inner
-let g:targets_nlNL = 'nlNL' " next last -- e.g. cinB
+let g:targets_nlNL = 'nN  ' " next last -- e.g. cinB
 let g:targets_pairs = '()b {}B [] <>' " allowed pairs
 let g:targets_quotes = '" '' `' " allowed quotes
 let g:targets_seperator = ', . ; : + - = ~ * # / | \ & $' " allowed seperators
 let g:targets_tagTrigger = 't' " tag = t
+let g:targets_argOpening = '[({[]'
+let g:targets_argClosing = '[]})]'
 let g:targets_argTrigger = 'a' " argument = a
 let g:targets_argSeparator = ',' " arguments are only those which are seperated by ,
+let g:targets_seekRanges = 'cr cb cB lc ac Ac lr rr ll' " only considers targets fully contained in current line
 
 " }}}
 
