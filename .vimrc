@@ -58,7 +58,7 @@ let g:ctrlp_show_hidden = 1 " show hidden files in searches
 let g:ctrlp_switch_buffer = 'Et' " jump to file instead of opening a new instance
 let g:ctrlp_custom_ignore = {
   \ 'dir': '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(mod|o|hdf5)$',
+  \ 'file': '\v\.(pyc|mod|o|hdf5)$',
   \ }
 " The Silver Searcher -- silversearcher-ag
 if executable("ag")
@@ -217,7 +217,7 @@ set confirm " Instead of failing a command because of unsaved changes, instead r
 
 set wildmenu " Better command-line completion
 set wildmode=longest,list,full
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pdf,*.png,*.jpg,*.o,*.mod,*.tar,*.eps
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.pdf,*.png,*.jpg,*.o,*.mod,*.tar,*.eps,*.pyc
 
 set hlsearch " highlight search results
 set ignorecase " Use case insensitive search, except when using capital letters
@@ -280,7 +280,7 @@ au BufNewFile,BufRead *.py
   \ set textwidth=79 |
   \ set foldmethod=indent |
   \ set foldlevel=99 |
-  \ let &colorcolumn="80,".join(range(120,999),",") |
+  \ let &colorcolumn="80" |
   \ highlight ColorColumn ctermbg=236
 
 " }}}
