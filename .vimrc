@@ -233,10 +233,9 @@ set t_vb=
 set backspace=indent,eol,start " Allow backspacing over autoindent, line breaks and start of insert
 set autoindent " When opening a new line and no filetype-specific indenting is enabled, keep the same indent as the line you're currently on.
 set expandtab
-let s:tabwidth=2
-let &l:tabstop = s:tabwidth
-let &l:shiftwidth = s:tabwidth
-let &l:softtabstop = s:tabwidth
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
 
 set nrformats-=octal " do not increment octal numbers (start with 0 - eg. 0647)
 set tags=./tags,./TAGS,tags,TAGS,tags;$HOME,TAGS;$HOME
@@ -261,26 +260,8 @@ cnoremap w!! w !sudo /usr/bin/tee > /dev/null %
 " }}}
 
 " Language specific settings {{{
-autocmd BufNewFile,BufRead *.gnu  setlocal filetype=gnuplot
-autocmd BufNewFile,BufRead *.gp   setlocal filetype=gnuplot
-autocmd FileType gnuplot setlocal commentstring=#\ %s
 
-let fortran_free_source=1
-autocmd Filetype fortran setlocal commentstring=!\ %s
-
-autocmd FileType c,cpp,cs,java setlocal commentstring=//\ %s
-
-autocmd Filetype python setlocal commentstring=#\ %s
-nnoremap <Leader>r :vnew<CR>Ioutput of <C-R>#<Esc>:r!python #<CR><C-W><C-W>
-nnoremap <Leader>c <C-W><C-h>ZQ
-au BufNewFile,BufRead *.py
-  \ set tabstop=4 |
-  \ set softtabstop=4 |
-  \ set shiftwidth=4 |
-  \ set textwidth=79 |
-  \ set foldmethod=indent |
-  \ set foldlevel=99 |
-  \ let &colorcolumn="80" |
-  \ highlight ColorColumn ctermbg=236
+" Language specific commands in the according .vim/ftplugin/***.vim file
+" Language detection in .vim/ftdetect/mine.vim
 
 " }}}
