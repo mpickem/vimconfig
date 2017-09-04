@@ -264,4 +264,22 @@ cnoremap w!! w !sudo /usr/bin/tee > /dev/null %
 " Language specific commands in the according .vim/ftplugin/***.vim file
 " Language detection in .vim/ftdetect/mine.vim
 
+" function implemented according to https://vi.stackexchange.com/a/4491
+let &colorcolumn="80"
+function! s:ToggleColumnLine(open) abort
+  if &filetype !=? 'python'
+    if a:open
+      hi ColorColumn ctermbg=236
+    else
+      hi ColorColumn ctermbg=235
+    endif
+  endif
+endfunction
+
+augroup columncolor
+  au!
+  au WinLeave,BufLeave * call s:ToggleColumnLine(1)
+  au WinEnter,BufEnter * call s:ToggleColumnLine(0)
+augroup end
+
 " }}}
