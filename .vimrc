@@ -99,7 +99,7 @@ let g:lightline = {
   \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
   \   'right': [ [ 'lineinfo' ],
   \              [ 'percent' ],
-  \              [ 'fileformat', 'filencoding', 'filetype' ] ]
+  \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
   \ },
   \ 'component_function': {
   \   'filename': 'LightlineFilename',
@@ -239,6 +239,8 @@ set softtabstop=2
 
 set nrformats-=octal " do not increment octal numbers (start with 0 - eg. 0647)
 set tags=./tags,./TAGS,tags,TAGS,tags;$HOME,TAGS;$HOME
+
+au VimResized * wincmd = " automatically resize splits if window size is changed
 
 " }}}
 
