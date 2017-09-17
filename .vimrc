@@ -27,6 +27,7 @@ Plug 'tpope/vim-surround'
 
 " Experimental Plugins
 " Plug 'bronson/vim-trailing-whitespace'
+Plug 'junegunn/vim-easy-align'
 
 " Initialize plugin system
 call plug#end()
@@ -171,6 +172,13 @@ let g:targets_seekRanges = 'cr cb cB lc ac Ac lr rr ll' " only considers targets
 " Fugitive configuration {{{
 
 autocmd BufReadPost fugitive://* set bufhidden=delete
+
+" }}}
+
+" EasyAlign configuration {{{
+
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
 " }}}
 
