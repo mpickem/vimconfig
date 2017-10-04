@@ -12,7 +12,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/gnuplot.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tomasr/molokai'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree' ", { 'on': 'NERDTreeToggle' }
 Plug 'joshdick/onedark.vim'
 Plug 'luochen1990/rainbow'
 Plug 'wellle/targets.vim'
