@@ -260,6 +260,10 @@ set tags=./tags,./TAGS,tags,TAGS,tags;$HOME,TAGS;$HOME
 
 au VimResized * wincmd = " automatically resize splits if window size is changed
 
+if isdirectory(expand("~/.vim/swapfiles/"))
+  set directory^=~/.vim/swapfiles/
+endif
+
 " }}}
 
 " Personal key mappings {{{
