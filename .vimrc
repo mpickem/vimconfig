@@ -8,7 +8,8 @@
 call plug#begin('~/.vim/plugged') " directory for plugins
 
 Plug 'vim-scripts/BufOnly.vim'
-" Plug 'kien/ctrlp.vim'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': '.install --all' } " full fzf -- unix + vim wrapper
+Plug 'junegunn/fzf.vim' " bundle of fzf-based commands in vim like :Tags, :Marks, : Windows etc
 Plug 'vim-scripts/gnuplot.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tomasr/molokai'
@@ -18,6 +19,7 @@ Plug 'luochen1990/rainbow'
 Plug 'wellle/targets.vim'
 Plug 'tpope/vim-commentary'
 Plug 'easymotion/vim-easymotion'
+Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-fugitive'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'xolox/vim-misc'
@@ -27,8 +29,6 @@ Plug 'tpope/vim-surround'
 
 " Experimental Plugins
 " Plug 'bronson/vim-trailing-whitespace'
-Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': '.install --all' }
 
 " Initialize plugin system
 call plug#end()
@@ -49,26 +49,6 @@ let NERDTreeDirArrows = 1
 " automatically close tab if NERDTree is the only window left
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 nnoremap <C-N> :NERDTreeToggle<CR>
-
-" }}}
-
-" CtrlP configuration {{{
-
-" let g:ctrlp_by_filename = 1
-" let g:ctrlp_regexp = 0 " start in regexp and filename search >d>
-" let g:ctrlp_show_hidden = 1 " show hidden files in searches
-" let g:ctrlp_switch_buffer = 'Et' " jump to file instead of opening a new instance
-" let g:ctrlp_custom_ignore = {
-"   \ 'dir': '\v[\/]\.(git|hg|svn)$',
-"   \ 'file': '\v\.(pyc|mod|o|hdf5)$',
-"   \ }
-" " The Silver Searcher -- silversearcher-ag
-" if executable("ag")
-"   set grepprg=ag\ --nogroup\ --nocolor " Use ag over grep
-"   let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup  -g ""' " Use ag in CtrlP for listing files.
-"   let g:ctrlp_use_caching = 0 " ag is fast enough that CtrlP doesn't need to cache
-" endif
-" nnoremap <leader><Space> :CtrlPTag<CR>
 
 " }}}
 
@@ -128,6 +108,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_buffers_jump = 1
 
 nnoremap <C-P> :FZF<CR> 
+nnoremap <leader><space> :Tags<CR>
 
 " }}}
 
