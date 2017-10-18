@@ -29,6 +29,7 @@ Plug 'tpope/vim-surround'
 
 " Experimental Plugins
 " Plug 'bronson/vim-trailing-whitespace'
+Plug 'airblade/vim-gitgutter'
 
 " Initialize plugin system
 call plug#end()
@@ -109,6 +110,20 @@ let g:fzf_buffers_jump = 1
 
 nnoremap <C-P> :FZF<CR> 
 nnoremap <leader><space> :Tags<CR>
+
+" }}}
+
+" gitgutter configuration {{{
+
+let g:gitgutter_sign_added = '•'
+let g:gitgutter_sign_modified = '••'
+let g:gitgutter_sign_removed = '•'
+let g:gitgutter_sign_removed_first_line = '•'
+let g:gitgutter_sign_modified_removed = '•'
+
+let g:gitgutter_realtime = 1
+let g:gitgutter_eager = 1
+let g:gitgutter_map_keys = 0 " just use it for the display of changed things
 
 " }}}
 
