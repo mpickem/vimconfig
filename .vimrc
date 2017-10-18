@@ -8,7 +8,7 @@
 call plug#begin('~/.vim/plugged') " directory for plugins
 
 Plug 'vim-scripts/BufOnly.vim'
-Plug 'kien/ctrlp.vim'
+" Plug 'kien/ctrlp.vim'
 Plug 'vim-scripts/gnuplot.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tomasr/molokai'
@@ -28,6 +28,7 @@ Plug 'tpope/vim-surround'
 " Experimental Plugins
 " Plug 'bronson/vim-trailing-whitespace'
 Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': '.install --all' }
 
 " Initialize plugin system
 call plug#end()
@@ -53,21 +54,80 @@ nnoremap <C-N> :NERDTreeToggle<CR>
 
 " CtrlP configuration {{{
 
-let g:ctrlp_by_filename = 1
-let g:ctrlp_regexp = 0 " start in regexp and filename search >d>
-let g:ctrlp_show_hidden = 1 " show hidden files in searches
-let g:ctrlp_switch_buffer = 'Et' " jump to file instead of opening a new instance
-let g:ctrlp_custom_ignore = {
-  \ 'dir': '\v[\/]\.(git|hg|svn)$',
-  \ 'file': '\v\.(pyc|mod|o|hdf5)$',
-  \ }
-" The Silver Searcher -- silversearcher-ag
-if executable("ag")
-  set grepprg=ag\ --nogroup\ --nocolor " Use ag over grep
-  let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup  -g ""' " Use ag in CtrlP for listing files.
-  let g:ctrlp_use_caching = 0 " ag is fast enough that CtrlP doesn't need to cache
-endif
-nnoremap <leader><Space> :CtrlPTag<CR>
+" let g:ctrlp_by_filename = 1
+" let g:ctrlp_regexp = 0 " start in regexp and filename search >d>
+" let g:ctrlp_show_hidden = 1 " show hidden files in searches
+" let g:ctrlp_switch_buffer = 'Et' " jump to file instead of opening a new instance
+" let g:ctrlp_custom_ignore = {
+"   \ 'dir': '\v[\/]\.(git|hg|svn)$',
+"   \ 'file': '\v\.(pyc|mod|o|hdf5)$',
+"   \ }
+" " The Silver Searcher -- silversearcher-ag
+" if executable("ag")
+"   set grepprg=ag\ --nogroup\ --nocolor " Use ag over grep
+"   let g:ctrlp_user_command = 'ag %s -i --nocolor --nogroup  -g ""' " Use ag in CtrlP for listing files.
+"   let g:ctrlp_use_caching = 0 " ag is fast enough that CtrlP doesn't need to cache
+" endif
+" nnoremap <leader><Space> :CtrlPTag<CR>
+
+" }}}
+
+" fzf configuration {{{
+
+" This is the default extra key bindings
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" An action can be a reference to a function that processes selected lines
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
+endfunction
+
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+" Default fzf layout
+" - down / up / left / right
+let g:fzf_layout = { 'down': '~40%' }
+
+" You can set up fzf window using a Vim command (Neovim or latest Vim 8 required)
+let g:fzf_layout = { 'window': 'enew' }
+let g:fzf_layout = { 'window': '-tabnew' }
+let g:fzf_layout = { 'window': '10split enew' }
+
+" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" Enable per-command history.
+" CTRL-N and CTRL-P will be automatically bound to next-history and
+" previous-history instead of down and up. If you don't like the change,
+" explicitly bind the keys to down and up in your $FZF_DEFAULT_OPTS.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+
+nnoremap <C-P> :FZF<CR> 
 
 " }}}
 
@@ -290,6 +350,8 @@ cnoremap w!! w !sudo /usr/bin/tee > /dev/null %
 
 " function implemented according to https://vi.stackexchange.com/a/4491
 let &colorcolumn="80"
+hi ColorColumn ctermbg=235
+
 function! s:ToggleColumnLine(open) abort
   if &filetype !=? 'python'
     if a:open
@@ -300,10 +362,10 @@ function! s:ToggleColumnLine(open) abort
   endif
 endfunction
 
-augroup columncolor
-  au!
-  au WinLeave,BufLeave * call s:ToggleColumnLine(1)
-  au WinEnter,BufEnter * call s:ToggleColumnLine(0)
-augroup end
+" augroup columncolor
+"   au!
+"   au WinLeave,BufLeave * call s:ToggleColumnLine(1)
+"   au WinEnter,BufEnter * call s:ToggleColumnLine(0)
+" augroup end
 
 " }}}
