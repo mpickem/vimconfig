@@ -1,6 +1,23 @@
 " vim:fdm=marker
 " .vimrc maintained by Matthias Pickem
 
+" summary of current leader shortcuts
+" s -- easymotion single key
+" t -- easymotion two keys
+" hjkl - easymotion movement
+" w -- easmotion words
+" a -- fzf buffers
+" space -- fzf tags
+
+" summary of current control shortcuts
+" n -- nerdtree
+" p -- fzf
+" l -- remove highlighting after search
+
+" reminder: zR ... unfold everything; zm ... fold everything
+
+
+
 " Plugins {{{
 
 " vim-plug
@@ -110,6 +127,7 @@ let g:fzf_buffers_jump = 1
 
 nnoremap <C-P> :FZF<CR> 
 nnoremap <leader><space> :Tags<CR>
+nnoremap <leader>a :Buffers<CR>
 
 " }}}
 
