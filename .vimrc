@@ -5,7 +5,6 @@
 " s -- easymotion single key
 " t -- easymotion two keys
 " hjkl - easymotion movement
-" w -- easmotion words
 " a -- fzf buffers
 " space -- fzf tags
 
@@ -17,7 +16,6 @@
 " reminder: zR ... unfold everything; zm ... fold everything
 
 
-
 " Plugins {{{
 
 " vim-plug
@@ -25,7 +23,7 @@
 call plug#begin('~/.vim/plugged') " directory for plugins
 
 Plug 'vim-scripts/BufOnly.vim'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': '.install --all' } " full fzf -- unix + vim wrapper
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " full fzf -- unix + vim wrapper
 Plug 'junegunn/fzf.vim' " bundle of fzf-based commands in vim like :Tags, :Marks, : Windows etc
 Plug 'vim-scripts/gnuplot.vim'
 Plug 'itchyny/lightline.vim'
@@ -223,7 +221,6 @@ map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
-map <Leader>w <Plug>(easymotion-overwin-w)
 
 " }}}
 
@@ -335,7 +332,7 @@ set tags=./tags,./TAGS,tags,TAGS,tags;$HOME,TAGS;$HOME
 au VimResized * wincmd = " automatically resize splits if window size is changed
 
 if isdirectory(expand("~/.vim/swapfiles/"))
-  set directory^=~/.vim/swapfiles/
+  set directory^=~/.vim/swapfiles/ " if that folder exists, add this string in front of the directory variable == swap file directory
 endif
 
 " }}}
