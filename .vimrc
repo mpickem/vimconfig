@@ -6,6 +6,7 @@
 " t -- easymotion two keys
 " hjkl - easymotion movement
 " a -- fzf buffers
+" w -- fzf windows
 " space -- fzf tags
 
 " summary of current control shortcuts
@@ -125,6 +126,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 let g:fzf_buffers_jump = 1
 
 " TODO: find out prune command in order to completely avoid .git
+" TODO: if ag is installed use that
 nnoremap <C-P> :call fzf#run(fzf#wrap({'source': 'find ./ -type f
   \ ! -name "*.mod"
   \ ! -name "*.o"
@@ -143,6 +145,7 @@ nnoremap <C-P> :call fzf#run(fzf#wrap({'source': 'find ./ -type f
 " nnoremap <C-P> :FZF<CR>
 nnoremap <leader><space> :Tags<CR>
 nnoremap <leader>a :Buffers<CR>
+nnoremap <leader>w :Windows<CR>
 
 " }}}
 
