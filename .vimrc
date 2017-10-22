@@ -283,7 +283,6 @@ let g:onedark_terminal_italics = 0
 colorscheme onedark
 set t_Co=256 " 256 colors terminal 
 set t_ut=    " necessary for tmux (disabling Background Clear Erase BCE)
-hi MatchParen ctermbg=000 cterm=bold ctermfg=015
 
 " }}}
 
@@ -338,6 +337,7 @@ endif
 
 let &colorcolumn="80" " mark 80th column ... apparently has to be after the settings
 hi colorcolumn ctermbg=235
+hi MatchParen ctermbg=000 cterm=bold ctermfg=015
 
 " disable automatic comment insertion, intelligent comment line joining
 autocmd BufNewFile,BufRead * setlocal formatoptions=jql
