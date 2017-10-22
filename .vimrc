@@ -124,7 +124,23 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
 
-nnoremap <C-P> :FZF<CR> 
+" TODO: find out prune command in order to completely avoid .git
+nnoremap <C-P> :call fzf#run(fzf#wrap({'source': 'find ./ -type f
+  \ ! -name "*.mod"
+  \ ! -name "*.o"
+  \ ! -name "*.tar"
+  \ ! -name "*.zip"
+  \ ! -name "*.jpg"
+  \ ! -name "*.png"
+  \ ! -name "*.so"
+  \ ! -name "*.a"
+  \ ! -name "*.swp"
+  \ ! -name "*.eps"
+  \ ! -name "*.pyc"
+  \ ! -path "./.git/*"
+  \ '})) <CR>
+
+" nnoremap <C-P> :FZF<CR>
 nnoremap <leader><space> :Tags<CR>
 nnoremap <leader>a :Buffers<CR>
 
