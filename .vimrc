@@ -149,6 +149,8 @@ nnoremap <leader>b :Buffers<CR>
 nnoremap <leader><space> :BLines<CR>
 nnoremap <leader>w :Windows<CR>
 
+imap <c-x><c-f> <plug>(fzf-complete-path)
+
 " }}}
 
 " gitgutter configuration {{{
