@@ -45,6 +45,7 @@ Plug 'tpope/vim-surround'
 " Experimental Plugins
 " Plug 'bronson/vim-trailing-whitespace'
 Plug 'airblade/vim-gitgutter'
+Plug 'vim-scripts/indentpython.vim'
 
 " Initialize plugin system
 call plug#end()
