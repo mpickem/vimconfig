@@ -3,11 +3,12 @@
 
 " summary of current leader shortcuts
 " s -- easymotion single key
-" t -- easymotion two keys
+" d -- easymotion double keys
 " hjkl - easymotion movement
-" a -- fzf buffers
+" b -- fzf buffers
+" t -- fzf tags
 " w -- fzf windows
-" space -- fzf tags
+" space -- fzf lines in the current buffer
 
 " summary of current control shortcuts
 " n -- nerdtree
@@ -143,8 +144,9 @@ nnoremap <C-P> :call fzf#run(fzf#wrap({'source': 'find ./ -type f
   \ '})) <CR>
 
 " nnoremap <C-P> :FZF<CR>
-nnoremap <leader><space> :Tags<CR>
-nnoremap <leader>a :Buffers<CR>
+nnoremap <leader>t :Tags<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader><space> :BLines<CR>
 nnoremap <leader>w :Windows<CR>
 
 " }}}
@@ -236,7 +238,7 @@ endfunction
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 let g:EasyMotion_smartcase = 1
 map <Leader>s <Plug>(easymotion-overwin-f)
-map <Leader>t <Plug>(easymotion-overwin-f2)
+map <Leader>d <Plug>(easymotion-overwin-f2)
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
