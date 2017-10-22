@@ -336,6 +336,12 @@ if isdirectory(expand("~/.vim/swapfiles/"))
   set directory^=~/.vim/swapfiles/ " if that folder exists, add this string in front of the directory variable == swap file directory
 endif
 
+let &colorcolumn="80" " mark 80th column ... apparently has to be after the settings
+hi colorcolumn ctermbg=235
+
+" disable automatic comment insertion, intelligent comment line joining
+autocmd BufNewFile,BufRead * setlocal formatoptions=jql
+
 " }}}
 
 " Personal key mappings {{{
@@ -359,27 +365,5 @@ cnoremap w!! w !sudo /usr/bin/tee > /dev/null %
 
 " Language specific commands in the according .vim/ftplugin/***.vim file
 " Language detection in .vim/ftdetect/mine.vim
-
-" function implemented according to https://vi.stackexchange.com/a/4491
-let &colorcolumn="80" " mark 80th column
-hi ColorColumn ctermbg=235
-
-function! s:ToggleColumnLine(open) abort
-  if &filetype !=? 'python'
-    if a:open
-      hi ColorColumn ctermbg=236
-    else
-      hi ColorColumn ctermbg=235
-    endif
-  endif
-endfunction
-
-" augroup columncolor
-"   au!
-"   au WinLeave,BufLeave * call s:ToggleColumnLine(1)
-"   au WinEnter,BufEnter * call s:ToggleColumnLine(0)
-" augroup end
-
-au FileType * setlocal formatoptions-=cro " disable automatic comment insertion
 
 " }}}
