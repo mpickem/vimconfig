@@ -361,7 +361,7 @@ cnoremap w!! w !sudo /usr/bin/tee > /dev/null %
 " Language detection in .vim/ftdetect/mine.vim
 
 " function implemented according to https://vi.stackexchange.com/a/4491
-let &colorcolumn="80"
+let &colorcolumn="80" " mark 80th column
 hi ColorColumn ctermbg=235
 
 function! s:ToggleColumnLine(open) abort
@@ -379,5 +379,7 @@ endfunction
 "   au WinLeave,BufLeave * call s:ToggleColumnLine(1)
 "   au WinEnter,BufEnter * call s:ToggleColumnLine(0)
 " augroup end
+
+au FileType * setlocal formatoptions-=cro " disable automatic comment insertion
 
 " }}}
