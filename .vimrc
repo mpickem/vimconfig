@@ -45,7 +45,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
 " Experimental Plugins
-" Plug 'bronson/vim-trailing-whitespace'
+Plug 'bronson/vim-trailing-whitespace'
 Plug 'airblade/vim-gitgutter'
 Plug 'vim-scripts/indentpython.vim'
 
@@ -128,20 +128,40 @@ let g:fzf_buffers_jump = 1
 
 " TODO: find out prune command in order to completely avoid .git
 " TODO: if ag is installed use that
-nnoremap <C-P> :call fzf#run(fzf#wrap({'source': 'find ./ -type f
-  \ ! -name "*.mod"
-  \ ! -name "*.o"
-  \ ! -name "*.tar"
-  \ ! -name "*.zip"
-  \ ! -name "*.jpg"
-  \ ! -name "*.png"
-  \ ! -name "*.so"
-  \ ! -name "*.a"
-  \ ! -name "*.swp"
-  \ ! -name "*.eps"
-  \ ! -name "*.pyc"
-  \ ! -path "./.git/*"
-  \ '})) <CR>
+
+if executable("ag")
+  nnoremap <C-P> :call fzf#run(fzf#wrap({'source': 'ag -l --nocolor --hidden --nogroup
+    \ --ignore-dir=.git
+    \ --ignore="*.mod"
+    \ --ignore="*.o"
+    \ --ignore="*.tar"
+    \ --ignore="*.zip"
+    \ --ignore="*.jpg"
+    \ --ignore="*.png"
+    \ --ignore="*.so"
+    \ --ignore="*.a"
+    \ --ignore="*.swp"
+    \ --ignore="*.eps"
+    \ --ignore="*.pyc"
+    \ '})) <CR>
+else
+  nnoremap <C-P> :call fzf#run(fzf#wrap({'source': 'find ./ -type f
+    \ ! -name "*.mod"
+    \ ! -name "*.o"
+    \ ! -name "*.tar"
+    \ ! -name "*.zip"
+    \ ! -name "*.jpg"
+    \ ! -name "*.png"
+    \ ! -name "*.so"
+    \ ! -name "*.a"
+    \ ! -name "*.swp"
+    \ ! -name "*.eps"
+    \ ! -name "*.pyc"
+    \ ! -path "./.git/*"
+    \ '})) <CR>
+
+endif
+
 
 " nnoremap <C-P> :FZF<CR>
 nnoremap <leader>t :Tags<CR>
@@ -304,7 +324,7 @@ let g:onedark_termcolors = 256
 let g:onedark_terminal_italics = 0
 
 colorscheme onedark
-set t_Co=256 " 256 colors terminal 
+set t_Co=256 " 256 colors terminal
 set t_ut=    " necessary for tmux (disabling Background Clear Erase BCE)
 
 " }}}
@@ -319,7 +339,7 @@ set encoding=utf-8
 
 set number " Display line numbers on the left (absolute)
 set cursorline " Highlight current line you are on
-set ruler " Display the cursor position 
+set ruler " Display the cursor position
 
 set laststatus=2 " Always display the status line, even if only one window is displayed
 set noshowmode " Disable showing mode since its already displayed in lightline
@@ -339,7 +359,7 @@ set incsearch " start the search while typing the first character
 set ttyfast " fast scrolling (usually already enabled on most terminals)
 set scrolloff=5 " start scrolling at 5 lines left on the screen
 
-set visualbell " No Flashing or beeping 
+set visualbell " No Flashing or beeping
 set t_vb=
 
 set backspace=indent,eol,start " Allow backspacing over autoindent, line breaks and start of insert
