@@ -228,6 +228,8 @@ endfunction
 
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 let g:EasyMotion_smartcase = 1
+let g:EasyMotion_keys = 'asdfghjklqwertzuiopyxcvbnm,'
+
 map <Leader>s <Plug>(easymotion-overwin-f)
 map <Leader>d <Plug>(easymotion-overwin-f2)
 map <Leader>l <Plug>(easymotion-lineforward)
