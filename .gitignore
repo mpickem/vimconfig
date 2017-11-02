@@ -1,2 +1,5 @@
 plugged/*
+swapfiles/*
+!swapfiles/README
 *.swp
+
