@@ -28,6 +28,7 @@ Plug 'vim-scripts/BufOnly.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " full fzf -- unix + vim wrapper
 Plug 'junegunn/fzf.vim' " bundle of fzf-based commands in vim like :Tags, :Marks, : Windows etc
 Plug 'vim-scripts/gnuplot.vim'
+Plug 'vim-scripts/indentpython.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'tomasr/molokai'
 Plug 'scrooloose/nerdtree' ", { 'on': 'NERDTreeToggle' }
@@ -39,6 +40,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-fugitive'
 Plug 'michaeljsmith/vim-indent-object'
+Plug 'airblade/vim-gitgutter'
 Plug 'xolox/vim-misc'
 Plug 'xolox/vim-notes'
 Plug 'tpope/vim-repeat'
@@ -46,8 +48,6 @@ Plug 'tpope/vim-surround'
 
 " Experimental Plugins
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'airblade/vim-gitgutter'
-Plug 'vim-scripts/indentpython.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -144,11 +144,11 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 
 " gitgutter configuration {{{
 
-let g:gitgutter_sign_added = '•'
-let g:gitgutter_sign_modified = '••'
-let g:gitgutter_sign_removed = '•'
-let g:gitgutter_sign_removed_first_line = '•'
-let g:gitgutter_sign_modified_removed = '•'
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '#'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '-'
+let g:gitgutter_sign_modified_removed = '#'
 
 let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
@@ -354,9 +354,13 @@ if isdirectory(expand("~/.vim/swapfiles/"))
   set directory^=~/.vim/swapfiles/ " if that folder exists, add this string in front of the directory variable == swap file directory
 endif
 
+" Color changes overwriting the colorscheme basically
 let &colorcolumn="80" " mark 80th column ... apparently has to be after the settings
 hi colorcolumn ctermbg=235
 hi MatchParen ctermbg=000 cterm=bold ctermfg=015
+hi SignifySignAdd cterm=bold
+hi SignifySignChange cterm=bold
+hi SignifySignDelete cterm=bold ctermfg = 196
 
 " disable automatic comment insertion, intelligent comment line joining
 autocmd BufNewFile,BufRead * setlocal formatoptions=jql
