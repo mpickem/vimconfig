@@ -361,6 +361,8 @@ hi MatchParen ctermbg=000 cterm=bold ctermfg=015
 hi SignifySignAdd cterm=bold
 hi SignifySignChange cterm=bold
 hi SignifySignDelete cterm=bold ctermfg = 196
+hi PreProc ctermfg = 39
+hi PreCondit ctermfg = 39
 
 " disable automatic comment insertion, intelligent comment line joining
 autocmd BufNewFile,BufRead * setlocal formatoptions=jql
