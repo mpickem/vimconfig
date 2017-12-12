@@ -359,7 +359,6 @@ let &colorcolumn="80" " mark 80th column ... apparently has to be after the sett
 hi colorcolumn ctermbg=235
 hi MatchParen ctermbg=000 cterm=bold ctermfg=015
 hi SignifySignAdd cterm=bold
-hi SignifySignChange cterm=bold
 hi SignifySignDelete cterm=bold ctermfg = 196
 hi PreProc ctermfg = 39
 hi PreCondit ctermfg = 39
