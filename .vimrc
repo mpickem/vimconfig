@@ -5,17 +5,18 @@
 " s -- easymotion single key
 " d -- easymotion double keys
 " hjkl - easymotion movement
+
 " b -- fzf buffers
+" f -- fzf files
+" g -- fzf git files
+" m -- fzf marks
 " t -- fzf tags
 " w -- fzf windows
 " space -- fzf lines in the current buffer
 
 " summary of current control shortcuts
 " n -- nerdtree
-" p -- fzf
 " l -- remove highlighting after search
-
-" reminder: zR ... unfold everything; zm ... fold everything
 
 
 " Plugins {{{
@@ -97,48 +98,18 @@ let g:fzf_colors =
 
 " [Buffers] Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
+let g:fzf_tags_command = 'ctags -R'
 
-if executable("ag") " ag takes into account contents of .gitignore -- runs with smartcase
-  nnoremap <C-P> :call fzf#run(fzf#wrap({'source': 'ag -l --nocolor --hidden --nogroup
-    \ --ignore-dir=.git
-    \ --ignore="*.mod"
-    \ --ignore="*.o"
-    \ --ignore="*.tar"
-    \ --ignore="*.zip"
-    \ --ignore="*.jpg"
-    \ --ignore="*.png"
-    \ --ignore="*.so"
-    \ --ignore="*.a"
-    \ --ignore="*.swp"
-    \ --ignore="*.eps"
-    \ --ignore="*.pyc"
-    \ '})) <CR>
-else
-  nnoremap <C-P> :call fzf#run(fzf#wrap({'source': 'find ./ -type f
-    \ ! -name "*.mod"
-    \ ! -name "*.o"
-    \ ! -name "*.tar"
-    \ ! -name "*.zip"
-    \ ! -name "*.jpg"
-    \ ! -name "*.png"
-    \ ! -name "*.so"
-    \ ! -name "*.a"
-    \ ! -name "*.swp"
-    \ ! -name "*.eps"
-    \ ! -name "*.pyc"
-    \ ! -path "./.git/*"
-    \ '})) <CR>
-
-endif
-
-
-" nnoremap <C-P> :FZF<CR>
-nnoremap <leader>t :Tags<CR>
 nnoremap <leader>b :Buffers<CR>
-nnoremap <leader><space> :BLines<CR>
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>g :GitFiles<CR>
+nnoremap <leader>m :Marks<CR>
+nnoremap <leader>t :Tags<CR>
 nnoremap <leader>w :Windows<CR>
+nnoremap <leader><space> :BLines<CR>
 
 imap <c-x><c-f> <plug>(fzf-complete-path)
+imap <c-x><c-k> <plug>(fzf-complete-buffer-line)
 
 " }}}
 
@@ -152,7 +123,7 @@ let g:gitgutter_sign_modified_removed = '#'
 
 let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
-let g:gitgutter_map_keys = 0 " just use it for the display of changed things
+let g:gitgutter_map_keys = 1 " just use it for the display of changed things
 
 " }}}
 
@@ -229,6 +200,7 @@ endfunction
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_keys = 'asdfghjklqwertzuiopyxcvbnm,'
+let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 
 map <Leader>s <Plug>(easymotion-overwin-f)
 map <Leader>d <Plug>(easymotion-overwin-f2)
@@ -237,18 +209,13 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 
-" map  / <Plug>(easymotion-sn)
-" omap / <Plug>(easymotion-tn)
-" map  n <Plug>(easymotion-next)
-" map  N <Plug>(easymotion-prev)
-
 " }}}
 
 " Targets.vim configuration {{{
 
 let g:targets_aiAI = 'aiAI' " around inner
 let g:targets_nlNL = 'nN  ' " next last -- e.g. cinB
-let g:targets_pairs = '()b {} []B <>' " allowed pairs
+let g:targets_pairs = '()b {}c []B <>' " bracket, curly, Bracket
 let g:targets_quotes = '" '' `' " allowed quotes
 let g:targets_seperator = ', . ; : + - = ~ * # / | \ & $' " allowed seperators
 let g:targets_tagTrigger = 't' " tag = t
