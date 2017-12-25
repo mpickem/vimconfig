@@ -123,7 +123,7 @@ let g:gitgutter_sign_modified_removed = '#'
 
 let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
-let g:gitgutter_map_keys = 1 " just use it for the display of changed things
+let g:gitgutter_map_keys = 0 " just use it for the display of changed things
 
 " }}}
 
