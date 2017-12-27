@@ -315,6 +315,8 @@ set softtabstop=2
 set nrformats-=octal " do not increment octal numbers (start with 0 - eg. 0647)
 set tags=./tags,./TAGS,tags,TAGS,tags;$HOME,TAGS;$HOME
 
+set lazyredraw " only rerender at the end of the macro
+
 au VimResized * wincmd = " automatically resize splits if window size is changed
 
 if isdirectory(expand("~/.vim/swapfiles/"))
@@ -341,6 +343,8 @@ autocmd BufNewFile,BufRead * setlocal formatoptions=jql
 set pastetoggle=<F2>
 " Y to be consistent with D and C
 map Y y$
+" Disable Q, since i press it accidently too often
+map Q <Nop>
 " fold open / close with space
 set foldlevelstart=-
 nnoremap <Space> za
