@@ -289,6 +289,7 @@ set noshowmode " Disable showing mode since its already displayed in lightline
 set notimeout ttimeout ttimeoutlen=200 " Quickly time out on keycodes, but never time out on mappings
 set showcmd " Show partial commands in the last line of the screen
 set confirm " Instead of failing a command because of unsaved changes, instead raise a dialogue asking if you wish to save changed files.
+set hidden " Possibility to have more than one unsaved buffer
 
 set wildmenu " Better command-line completion
 set wildmode=longest,list,full
