@@ -280,7 +280,7 @@ filetype indent off
 syntax enable " Enable syntax highlighting
 set encoding=utf-8
 
-set number " Display line numbers on the left (absolute)
+set number relativenumber " Display line numbers on the left (relative)
 set cursorline " Highlight current line you are on
 set ruler " Display the cursor position
 
@@ -335,6 +335,12 @@ hi PreCondit ctermfg = 39
 
 " disable automatic comment insertion, intelligent comment line joining
 autocmd BufNewFile,BufRead * setlocal formatoptions=jql
+
+augroup numbertoggle
+  autocmd!
+  autocmd WinEnter,BufEnter,FocusGained,InsertLeave * set relativenumber
+  autocmd WinLeave,BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 
 " }}}
 
