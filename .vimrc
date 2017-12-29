@@ -361,6 +361,9 @@ vnoremap <Space> za
 nnoremap <C-L> :nohl<CR><C-L>
 " Allow saving of files as sudo when I forgot to start vim using sudo
 cnoremap w!! w !sudo /usr/bin/tee > /dev/null %
+" LineScrolling makes this way more sense (to me)
+nnoremap <C-J> <C-E>
+nnoremap <C-K> <C-Y>
 
 " }}}
 
