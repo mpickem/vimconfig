@@ -4,7 +4,12 @@
 " summary of current leader shortcuts
 " s -- easymotion single key
 " d -- easymotion double keys
-" hjkl - easymotion movement
+" hl - easymotion inline movement
+
+" j -- GitGutter next Hunk
+" k -- GitGutter prev Hunk
+" < -- GitGutter stage Hunk
+" > -- GitGutter undo Hunk
 
 " b -- fzf buffers
 " f -- fzf files
@@ -116,14 +121,19 @@ imap <c-x><c-k> <plug>(fzf-complete-buffer-line)
 " gitgutter configuration {{{
 
 let g:gitgutter_sign_added = '+'
-let g:gitgutter_sign_modified = '#'
+let g:gitgutter_sign_modified = '>'
 let g:gitgutter_sign_removed = '-'
 let g:gitgutter_sign_removed_first_line = '-'
-let g:gitgutter_sign_modified_removed = '#'
+let g:gitgutter_sign_modified_removed = '>'
 
 let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
 let g:gitgutter_map_keys = 0 " just use it for the display of changed things
+
+nnoremap <Leader>j :GitGutterNextHunk<CR>
+nnoremap <Leader>k :GitGutterPrevHunk<CR>
+nnoremap <Leader>< :GitGutterStageHunk<CR>
+nnoremap <Leader>> :GitGutterUndoHunk<CR>
 
 " }}}
 
@@ -205,8 +215,6 @@ let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 map <Leader>s <Plug>(easymotion-overwin-f)
 map <Leader>d <Plug>(easymotion-overwin-f2)
 map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 
 " }}}
@@ -258,8 +266,6 @@ let g:easy_align_delimiters = {
 
 let s:black = { "gui": "#282c34", "cterm": "239", "cterm16": "8" }
 let s:yellow = { "gui": "#61afef", "cterm": "226", "cterm16" : "011" }
-autocmd Colorscheme * call onedark#set_highlight("DiffChange", {"fg": s:yellow, "bg": s:black})
-autocmd Colorscheme * call onedark#set_highlight("DiffText", {"bg": s:yellow, "fg": s:black})
 let g:onedark_color_overrides = {
   \ "white":{"gui": "#000000", "cterm": "255", "cterm16": "15"},
   \}
@@ -315,10 +321,8 @@ set softtabstop=2
 
 set nrformats-=octal " do not increment octal numbers (start with 0 - eg. 0647)
 set tags=./tags,./TAGS,tags,TAGS,tags;$HOME,TAGS;$HOME
-
 set lazyredraw " only rerender at the end of the macro
-
-au VimResized * wincmd = " automatically resize splits if window size is changed
+set matchpairs+=<:> " include <:> to matchpairs
 
 if isdirectory(expand("~/.vim/swapfiles/"))
   set directory^=~/.vim/swapfiles/ " if that folder exists, add this string in front of the directory variable == swap file directory
@@ -330,9 +334,15 @@ hi colorcolumn ctermbg=235
 hi MatchParen ctermbg=000 cterm=bold ctermfg=015
 hi SignifySignAdd cterm=bold
 hi SignifySignDelete cterm=bold ctermfg = 196
+hi SignifySignChange cterm=bold ctermfg = 180
+hi GitGutterChange cterm=bold ctermfg = 3
+hi GitGutterChangeDefault cterm=bold ctermfg = 3
 hi PreProc ctermfg = 39
 hi PreCondit ctermfg = 39
 hi CursorLineNr ctermfg = 226 cterm=bold
+
+" autocommands
+autocmd VimResized * wincmd = " automatically resize splits if window size is changed
 
 " disable automatic comment insertion, intelligent comment line joining
 autocmd BufNewFile,BufRead * setlocal formatoptions=jql
@@ -345,13 +355,13 @@ augroup END
 
 " }}}
 
-" Personal key mappings {{{
+" Non-plugin key mappings {{{
 
 " Use <F2> to toggle between 'paste' and 'nopaste' in INSERT MODE
 set pastetoggle=<F2>
 " Y to be consistent with D and C
 map Y y$
-" Disable Q, since i press it accidently too often
+" Disable Q, since I accidently press it too often
 map Q <Nop>
 " fold open / close with space
 set foldlevelstart=-
