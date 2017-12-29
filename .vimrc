@@ -210,10 +210,10 @@ endfunction
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_keys = 'asdfghjklqwertzuiopyxcvbnm,'
-let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
+let g:EasyMotion_startofline = 1 " keep cursor column when JK motion
 
-map <Leader>s <Plug>(easymotion-overwin-f)
-map <Leader>d <Plug>(easymotion-overwin-f2)
+map <Leader>s <Plug>(easymotion-f)
+map <Leader>d <Plug>(easymotion-f2)
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>h <Plug>(easymotion-linebackward)
 
@@ -333,13 +333,13 @@ let &colorcolumn="80" " mark 80th column ... apparently has to be after the sett
 hi colorcolumn ctermbg=235
 hi MatchParen ctermbg=000 cterm=bold ctermfg=015
 hi SignifySignAdd cterm=bold
-hi SignifySignDelete cterm=bold ctermfg = 196
-hi SignifySignChange cterm=bold ctermfg = 180
-hi GitGutterChange cterm=bold ctermfg = 3
-hi GitGutterChangeDefault cterm=bold ctermfg = 3
-hi PreProc ctermfg = 39
-hi PreCondit ctermfg = 39
-hi CursorLineNr ctermfg = 226 cterm=bold
+hi SignifySignDelete cterm=bold ctermfg=196
+hi SignifySignChange cterm=bold ctermfg=180
+hi GitGutterChange cterm=bold ctermfg=3
+hi GitGutterChangeDefault cterm=bold ctermfg=3
+hi PreProc ctermfg=39
+hi PreCondit ctermfg=39
+hi CursorLineNr ctermfg=226 cterm=bold
 
 " autocommands
 autocmd VimResized * wincmd = " automatically resize splits if window size is changed
