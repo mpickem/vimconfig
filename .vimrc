@@ -47,8 +47,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-fugitive'
 Plug 'michaeljsmith/vim-indent-object'
 Plug 'airblade/vim-gitgutter'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-notes'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
@@ -144,16 +142,6 @@ let g:rainbow_conf = {
   \ 'ctermfgs': ['red', 'cyan', 'yellow'],
   \ 'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/'],
   \}
-
-" }}}
-
-" Vim-notes configuration {{{
-
-" instructions with :Note
-" open note with ':edit note:xxxx' where xxxx is a re in the title
-let g:notes_suffix='.txt'
-" let g:notes_directories = ['~/Dropbox/shared Notes']
-let g:notes_conceal_url=0
 
 " }}}
 
