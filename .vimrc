@@ -362,6 +362,7 @@ cnoremap w!! w !sudo /usr/bin/tee > /dev/null %
 " LineScrolling makes this way more sense (to me)
 nnoremap <C-J> <C-E>
 nnoremap <C-K> <C-Y>
+inoremap <leader><leader>t <C-R>=strftime('%d %b %Y %X %Z')<CR>
 
 " }}}
 
