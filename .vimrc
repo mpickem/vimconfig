@@ -16,8 +16,9 @@
 " g -- fzf git files
 " m -- fzf marks
 " t -- fzf tags
-" w -- fzf windows
 " space -- fzf lines in the current buffer
+
+" w -- toggle whitespace highlighting
 
 " summary of current control shortcuts
 " n -- nerdtree
@@ -108,7 +109,7 @@ nnoremap <leader>f :Files<CR>
 nnoremap <leader>g :GitFiles<CR>
 nnoremap <leader>m :Marks<CR>
 nnoremap <leader>t :Tags<CR>
-nnoremap <leader>w :Windows<CR>
+" nnoremap <leader>w :Windows<CR>
 nnoremap <leader><space> :BLines<CR>
 
 imap <c-x><c-f> <plug>(fzf-complete-path)
@@ -340,6 +341,22 @@ augroup numbertoggle
   autocmd WinEnter,BufEnter,FocusGained,InsertLeave * set relativenumber
   autocmd WinLeave,BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
+
+let g:whitespace = "1" " default: we show whitespaces
+hi ExtraWhiteSpace ctermbg=9
+function! ToggleWhiteSpace()
+  if g:whitespace == "1"
+    hi ExtraWhiteSpace ctermbg=235
+    redraw
+    let g:whitespace = "0"
+  else
+    hi ExtraWhiteSpace ctermbg=9
+    redraw
+    let g:whitespace = "1"
+  endif
+endfunction
+
+noremap <Leader>w :call ToggleWhiteSpace()<CR>
 
 " }}}
 
