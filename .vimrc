@@ -19,6 +19,7 @@
 " space -- fzf lines in the current buffer
 
 " w -- toggle whitespace highlighting
+" a -- toggle ALE
 
 " summary of current control shortcuts
 " n -- nerdtree
@@ -53,6 +54,7 @@ Plug 'tpope/vim-surround'
 
 " Experimental Plugins
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'w0rp/ale'
 
 " Initialize plugin system
 call plug#end()
@@ -119,20 +121,22 @@ imap <c-x><c-k> <plug>(fzf-complete-buffer-line)
 
 " gitgutter configuration {{{
 
+nnoremap <Leader>j :GitGutterNextHunk<CR>zz
+nnoremap <Leader>k :GitGutterPrevHunk<CR>zz
+nmap <Leader>J G<Leader>kzz
+nmap <Leader>K gg<Leader>jzz
+nnoremap <Leader>< :GitGutterStageHunk<CR>
+nnoremap <Leader>> :GitGutterUndoHunk<CR>
+
 let g:gitgutter_sign_added = '+'
 let g:gitgutter_sign_modified = '>'
 let g:gitgutter_sign_removed = '-'
-let g:gitgutter_sign_removed_first_line = '-'
-let g:gitgutter_sign_modified_removed = '>'
+let g:gitgutter_sign_removed_first_line = '‾'
+let g:gitgutter_sign_modified_removed = '->'
 
 let g:gitgutter_realtime = 1
 let g:gitgutter_eager = 1
 let g:gitgutter_map_keys = 0 " just use it for the display of changed things
-
-nnoremap <Leader>j :GitGutterNextHunk<CR>
-nnoremap <Leader>k :GitGutterPrevHunk<CR>
-nnoremap <Leader>< :GitGutterStageHunk<CR>
-nnoremap <Leader>> :GitGutterUndoHunk<CR>
 
 " }}}
 
@@ -247,6 +251,19 @@ let g:easy_align_delimiters = {
 
 " }}}
 
+" ALE configuration {{{
+
+" let g:ale_lint_on_enter = 0
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
+nnoremap <Leader>a :ALEToggle<CR>
+
+let g:ale_linters = {
+\ 'c++': ['clang, clang-format, cppcheck, cppling !!, gcc'],
+\}
+
+" }}}
+
 " Colorscheme {{{
 
 " colorscheme molokai
@@ -323,7 +340,7 @@ hi colorcolumn ctermbg=235
 hi MatchParen ctermbg=000 cterm=bold ctermfg=015
 hi SignifySignAdd cterm=bold
 hi SignifySignDelete cterm=bold ctermfg=196
-hi SignifySignChange cterm=bold ctermfg=180
+hi SignifySignChange cterm=bold ctermfg=3
 hi GitGutterChange cterm=bold ctermfg=3
 hi GitGutterChangeDefault cterm=bold ctermfg=3
 hi PreProc ctermfg=39
