@@ -382,7 +382,11 @@ noremap <Leader>w :call ToggleWhiteSpace()<CR>
 " Non-plugin key mappings {{{
 
 " Use <F2> to toggle between 'paste' and 'nopaste' in INSERT MODE
+" F1 -- help
+" F2 -- pastetoggle
 set pastetoggle=<F2>
+" F3 -- turn off/on linenumbers
+nnoremap <F3> :set relativenumber!<CR> :set number!<CR>
 " Y to be consistent with D and C
 map Y y$
 " Disable Q, since I accidently press it too often
@@ -406,5 +410,3 @@ inoremap <leader><leader>t <C-R>=strftime('%d %b %Y %X %Z')<CR>
 
 " Language specific commands in the according .vim/ftplugin/***.vim file
 " Language detection in .vim/ftdetect/mine.vim
-
-" }}}
