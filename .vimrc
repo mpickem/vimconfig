@@ -13,6 +13,7 @@
 " < -- GitGutter stage Hunk
 " > -- GitGutter undo Hunk
 
+" a -- fzf Ag
 " b -- fzf buffers
 " f -- fzf files
 " g -- fzf git files
@@ -21,7 +22,6 @@
 " space -- fzf lines in the current buffer
 
 " w -- toggle whitespace highlighting
-" a -- toggle ALE
 
 " summary of current control shortcuts
 " n -- nerdtree
@@ -56,7 +56,6 @@ Plug 'tpope/vim-surround'
 
 " Experimental Plugins
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'w0rp/ale'
 
 " Initialize plugin system
 call plug#end()
@@ -108,6 +107,7 @@ let g:fzf_colors =
 let g:fzf_buffers_jump = 1
 let g:fzf_tags_command = 'ctags -R'
 
+nnoremap <leader>a :Ag<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>f :Files<CR>
 nnoremap <leader>g :GitFiles<CR>
@@ -250,19 +250,6 @@ let g:easy_align_delimiters = {
 \			'stick_to_left': 0
 \   }
 \ }
-
-" }}}
-
-" ALE configuration {{{
-
-" let g:ale_lint_on_enter = 0
-let g:ale_lint_on_text_changed = 'normal'
-let g:ale_lint_on_insert_leave = 1
-nnoremap <Leader>a :ALEToggle<CR>
-
-let g:ale_linters = {
-\ 'c++': ['clang, clang-format, cppcheck, cppling !!, gcc'],
-\}
 
 " }}}
 
