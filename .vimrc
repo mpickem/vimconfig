@@ -342,11 +342,11 @@ autocmd VimResized * wincmd = " automatically resize splits if window size is ch
 " disable automatic comment insertion, intelligent comment line joining
 autocmd BufNewFile,BufRead * setlocal formatoptions=jql
 
-augroup numbertoggle
-  autocmd!
-  autocmd WinEnter,BufEnter,FocusGained,InsertLeave * set relativenumber
-  autocmd WinLeave,BufLeave,FocusLost,InsertEnter   * set norelativenumber
-augroup END
+" augroup numbertoggle
+"   autocmd!
+"   autocmd WinEnter,BufEnter,FocusGained,InsertLeave * set relativenumber
+"   autocmd WinLeave,BufLeave,FocusLost,InsertEnter   * set norelativenumber
+" augroup END
 
 let g:whitespace = "1" " default: we show whitespaces
 hi ExtraWhiteSpace ctermbg=9
