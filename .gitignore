@@ -1,5 +1,5 @@
 plugged/*
-swapfiles/*
-!swapfiles/README
-*.swp
-
+tmp/*
+!tmp/swp/README
+!tmp/undo/README
+!tmp/backup/README
