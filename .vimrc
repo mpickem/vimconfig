@@ -1,6 +1,8 @@
 " vim:fdm=marker
 " .vimrc maintained by Matthias Pickem
 
+" Shortcuts {{{
+
 " summary of current leader shortcuts
 " s -- easymotion single key
 " d -- easymotion double keys
@@ -20,6 +22,7 @@
 " m -- fzf marks
 " t -- fzf tags
 " space -- fzf lines in the current buffer
+" F1 -- fzf helptags
 
 " w -- toggle whitespace highlighting
 
@@ -27,6 +30,7 @@
 " n -- nerdtree
 " l -- remove highlighting after search
 
+" }}}
 
 " Plugins {{{
 
@@ -56,6 +60,7 @@ Plug 'tpope/vim-surround'
 
 " Experimental Plugins
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'wincent/loupe'
 
 " Initialize plugin system
 call plug#end()
@@ -115,6 +120,7 @@ nnoremap <leader>m :Marks<CR>
 nnoremap <leader>t :Tags<CR>
 " nnoremap <leader>w :Windows<CR>
 nnoremap <leader><space> :BLines<CR>
+nnoremap <F1> :Helptags<CR>
 
 imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-k> <plug>(fzf-complete-buffer-line)
@@ -253,6 +259,13 @@ let g:easy_align_delimiters = {
 
 " }}}
 
+" Loupe configuration {{{
+
+" we already have ctrl-l
+nmap <Nop> <Plug>(LoupeClearHighlight)
+
+" }}}
+
 " Colorscheme {{{
 
 " colorscheme molokai
@@ -319,8 +332,26 @@ set tags=./tags,./TAGS,tags,TAGS,tags;$HOME,TAGS;$HOME
 set lazyredraw " only rerender at the end of the macro
 set matchpairs+=<:> " include <:> to matchpairs
 
-if isdirectory(expand("~/.vim/swapfiles/"))
-  set directory^=~/.vim/swapfiles/ " if that folder exists, add this string in front of the directory variable == swap file directory
+if has('persistent_undo')
+  if exists('$SUDO_USER')
+    set noundofile
+  else
+    set undodir^=~/.vim/tmp/undo/
+    set undofile
+  endif
+endif
+
+if exists('$SUDO_USER')
+  set nobackup
+  set nowritebackup
+  set noswapfile
+else
+  set backupdir^=~/.vim/tmp/backup/
+  set directory^=~/.vim/tmp/swap/
+endif
+
+if exists('&belloff')
+  set belloff=all
 endif
 
 " Color changes overwriting the colorscheme basically
@@ -340,7 +371,11 @@ hi CursorLineNr ctermfg=226 cterm=bold
 autocmd VimResized * wincmd = " automatically resize splits if window size is changed
 
 " disable automatic comment insertion, intelligent comment line joining
-autocmd BufNewFile,BufRead * setlocal formatoptions=jql
+if v:version > 703 || v:version == 703 && has('patch541')
+  autocmd BufNewFile,BufRead * setlocal formatoptions=jql
+else
+  autocmd BufNewFile,BufRead * setlocal formatoptions=ql
+endif
 
 " augroup numbertoggle
 "   autocmd!
@@ -390,6 +425,15 @@ cnoremap w!! w !sudo /usr/bin/tee > /dev/null %
 nnoremap <C-J> <C-E>
 nnoremap <C-K> <C-Y>
 inoremap <leader><leader>t <C-R>=strftime('%d %b %Y %X %Z')<CR>
+
+" RegularExpression stuff
+" this is handled by the plugin 'loupe'
+
+" everything is special unless escaped ('very-magic')
+" remember: \b ... \b  is equivalent to < ... >
+" nnoremap / /\v
+" vnoremap / /\v
+" remember: \zs \ze ... start end look behind / look ahead marker
 
 " }}}
 
