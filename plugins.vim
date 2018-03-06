@@ -125,6 +125,10 @@ let g:lightline = {
   \              [ 'percent' ],
   \              [ 'fileformat', 'fileencoding', 'filetype' ] ]
   \ },
+  \ 'inactive': {
+  \   'left': [ [ 'filename' ] ],
+  \   'right': [ [ 'lineinfo' ], [ 'percent' ] ]
+  \ },
   \ 'component_function': {
   \   'filename': 'LightlineFilename',
   \   'fileformat': 'LightlineFileformat',
@@ -133,9 +137,9 @@ let g:lightline = {
   \   'mode': 'LightlineMode',
   \   'gitbranch': 'LightlineGit',
   \ },
+  \ 'colorscheme': 'one'
   \ }
 
-      " \ 'colorscheme': 'onedark',
 function! LightlineFilename()
   return expand('%')
 endfunction
