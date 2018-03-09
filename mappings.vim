@@ -18,3 +18,6 @@ cnoremap w!! w !sudo /usr/bin/tee > /dev/null %
 nnoremap <C-J> <C-E>
 nnoremap <C-K> <C-Y>
 inoremap <leader><leader>t <C-R>=strftime('%d %b %Y %X %Z')<CR>
+" RegEx search
+nnoremap / /\v
+xnoremap / /\v

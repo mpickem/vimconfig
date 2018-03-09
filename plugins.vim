@@ -25,7 +25,6 @@ Plug 'tpope/vim-surround'
 
 " Experimental Plugins
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'wincent/loupe'
 
 " Initialize plugin system
 call plug#end()
@@ -173,8 +172,8 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_keys = 'asdfghjklqwertzuiopyxcvbnm,'
 let g:EasyMotion_startofline = 1 " keep cursor column when JK motion
 
-map <Leader>s <Plug>(easymotion-f)
-map <Leader>d <Plug>(easymotion-f2)
+map <Leader>s <Plug>(easymotion-overwin-f)
+map <Leader>d <Plug>(easymotion-overwin-f2)
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>h <Plug>(easymotion-linebackward)
 
@@ -216,12 +215,5 @@ let g:easy_align_delimiters = {
 \			'stick_to_left': 0
 \   }
 \ }
-
-" }}}
-
-" Loupe configuration {{{
-
-" we already have ctrl-l
-nmap <Nop> <Plug>(LoupeClearHighlight)
 
 " }}}
