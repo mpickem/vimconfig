@@ -106,6 +106,13 @@ endfunction
 
 noremap <Leader>w :call ToggleWhiteSpace()<CR>
 
+" Spelling
+hi clear SpellBad
+hi SpellBad cterm=underline,bold ctermfg=9
+set spellfile^=~/.vim/spell/en.utf-8.add
+
+let g:tex_flavor='latex'
+
 " }}}
 
 " Colorscheme {{{
@@ -134,12 +141,6 @@ hi GitGutterChangeDefault cterm=bold ctermfg=3
 hi PreProc ctermfg=39
 hi PreCondit ctermfg=39
 hi CursorLineNr ctermfg=226 cterm=bold
-
-hi clear SpellBad
-hi SpellBad cterm=underline,bold ctermfg=9
-set spellfile^=~/.vim/spell/en.utf-8.add
-
-let g:tex_flavor='latex'
 
 " }}}
 

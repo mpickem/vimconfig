@@ -5,4 +5,4 @@ let b:did_ftplugin = 1
 
 setlocal commentstring=#\ %s
 setlocal spell
-setlocal spelllang=en_us
+setlocal spelllang=en
