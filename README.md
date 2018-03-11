@@ -57,3 +57,4 @@
 `F3` | toggle line numbers
 `F5` | local English spellcheck
 `F6` | local German spellcheck
+`F10` | undotree

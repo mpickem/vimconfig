@@ -109,6 +109,8 @@ noremap <Leader>w :call ToggleWhiteSpace()<CR>
 " Spelling
 hi clear SpellBad
 hi SpellBad cterm=underline,bold ctermfg=9
+hi SpellRare cterm=underline,bold
+hi SpellCap cterm=underline,bold
 set spellfile^=~/.vim/spell/en.utf-8.add
 
 let g:tex_flavor='latex'

@@ -56,8 +56,6 @@ MaxEnt
 Salpeter
 Hund's
 SU
-Kanamari
-Kanamori
 QMC
 numpy
 scipy
@@ -73,6 +71,7 @@ anticommutator
 prefactor
 Kubo
 antiperiodicity
-antiperiodic/!
 antiperiodic
 transversal
+KMS
+Kanamori

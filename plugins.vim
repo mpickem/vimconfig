@@ -25,6 +25,7 @@ Plug 'tpope/vim-surround'
 
 " Experimental Plugins
 Plug 'bronson/vim-trailing-whitespace'
+Plug 'mbbill/undotree'
 
 " Initialize plugin system
 call plug#end()
@@ -217,3 +218,9 @@ let g:easy_align_delimiters = {
 \ }
 
 " }}}
+
+" {{{ Undotree
+
+nnoremap <F10> :UndotreeToggle<CR>
+
+"}}}
