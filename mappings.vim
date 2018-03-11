@@ -24,3 +24,8 @@ inoremap <leader><leader>t <C-R>=strftime('%d %b %Y %X %Z')<CR>
 " RegEx search
 nnoremap / /\v
 xnoremap / /\v
+" easier window movement
+nnoremap <C-H> <C-W>h
+nnoremap <C-L> <C-W>l
+nnoremap <C-J> <C-W>j
+nnoremap <C-K> <C-W>k
