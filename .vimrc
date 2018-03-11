@@ -135,6 +135,11 @@ hi PreProc ctermfg=39
 hi PreCondit ctermfg=39
 hi CursorLineNr ctermfg=226 cterm=bold
 
+hi clear SpellBad
+hi SpellBad cterm=underline,bold ctermfg=9
+
+let g:tex_flavor='latex'
+
 " }}}
 
 " non-plugin mappings

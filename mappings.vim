@@ -1,7 +1,8 @@
+" F! -- FZF help
 " F2 -- pastetoggle
 set pastetoggle=<F2>
 " F3 -- turn off/on linenumbers
-nnoremap <F3> :set relativenumber!<CR> :set number!<CR>
+nnoremap <F3> :set relativenumber!<CR> :set number!<CR> :GitGutterToggle<CR>
 " Y to be consistent with D and C
 map Y y$
 " Disable Q, since I accidently press it too often

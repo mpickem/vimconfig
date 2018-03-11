@@ -29,7 +29,7 @@ Plug 'bronson/vim-trailing-whitespace'
 " Initialize plugin system
 call plug#end()
 
-" NERDTree configuration {{{
+" NERDTree {{{
 
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
@@ -39,7 +39,7 @@ nnoremap <C-N> :NERDTreeToggle<CR>
 
 " }}}
 
-" fzf configuration {{{
+" fzf {{{
 
 " This is the default extra key bindings
 let g:fzf_action = {
@@ -82,7 +82,7 @@ imap <c-x><c-k> <plug>(fzf-complete-buffer-line)
 
 " }}}
 
-" gitgutter configuration {{{
+" gitgutter {{{
 
 nnoremap <Leader>j :GitGutterNextHunk<CR>zz
 nnoremap <Leader>k :GitGutterPrevHunk<CR>zz
@@ -103,7 +103,7 @@ let g:gitgutter_map_keys = 0 " just use it for the display of changed things
 
 " }}}
 
-" Rainbow parenthesis configuration {{{
+" Rainbow parenthesis {{{
 
 let g:rainbow_active = 1
 let g:rainbow_conf = {
@@ -113,7 +113,7 @@ let g:rainbow_conf = {
 
 " }}}
 
-" Light-line configuration {{{
+" Light-line {{{
 
 " collapes ff,ft,fe,mode if horizontal window size is too small
 let g:lightline = {
@@ -165,7 +165,7 @@ endfunction
 
 " }}}
 
-" EasyMotion configuration {{{
+" EasyMotion {{{
 
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
 let g:EasyMotion_smartcase = 1
@@ -179,7 +179,7 @@ map <Leader>h <Plug>(easymotion-linebackward)
 
 " }}}
 
-" Targets.vim configuration {{{
+" Targets.vim {{{
 
 let g:targets_aiAI = 'aiAI' " around inner
 let g:targets_nlNL = 'nN  ' " next last -- e.g. cinB
@@ -195,13 +195,13 @@ let g:targets_seekRanges = 'cr cb cB lc ac Ac lr rr ll' " only considers targets
 
 " }}}
 
-" Fugitive configuration {{{
+" Fugitive {{{
 
 autocmd BufReadPost fugitive://* set bufhidden=delete
 
 " }}}
 
-" EasyAlign configuration {{{
+" EasyAlign {{{
 
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
