@@ -14,17 +14,17 @@ map Q <Nop>
 " fold open / close with space
 nnoremap <Space> za
 vnoremap <Space> za
-" Ctrl L deactivates highlighting after a search
-nnoremap <C-L> :nohl<CR><C-L>
+" Ctrl L deactivates highlighting after a search -- obsolete
+" nnoremap <C-L> :nohl<CR><C-L>
 " Allow saving of files as sudo when I forgot to start vim using sudo
 cnoremap w!! w !sudo /usr/bin/tee > /dev/null %
 " LineScrolling makes this way more sense (to me)
 nnoremap <C-J> <C-E>
 nnoremap <C-K> <C-Y>
 inoremap <leader><leader>t <C-R>=strftime('%d %b %Y %X %Z')<CR>
-" RegEx search
-nnoremap / /\v
-xnoremap / /\v
+" RegEx search -- obsolete
+" nnoremap / /\v
+" xnoremap / /\v
 " easier window movement
 nnoremap <C-H> <C-W>h
 nnoremap <C-L> <C-W>l

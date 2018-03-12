@@ -24,3 +24,5 @@ hi clear SpellBad
 hi SpellBad cterm=underline,bold ctermfg=9
 hi SpellRare cterm=underline,bold
 hi SpellCap cterm=underline,bold
+hi Search cterm=underline,bold ctermfg=9 ctermbg=none
+hi IncSearch cterm=bold ctermfg=82 ctermbg=16

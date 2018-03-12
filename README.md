@@ -37,7 +37,8 @@
 **Shortcut** | **General leader command**
 :----: | ----:
 `Leader` | go to alternate file (`#`)
-`w` | toggle **W**hitespace highlighting
+`n` | remove highlighting
+`w` | toggle **w**hitespace highlighting
 `zz` | delete all trailing whitespace
 
 #### Control shortcuts
@@ -45,13 +46,12 @@
 **Shortcut** | **Ctrl command**
 :----: | ----:
 `n` | **N**erdtree
-`l` | redraw screen / remove highlighting
 
 #### General mappings
 
 **Shortcut** | **Command**
 :----: | ----:
-`K` | `ddkPJ` (to be consistent with `J`)
+`K` | `ddkPJ`
 `Y` | `y$`
 `Q` | Nop
 `Space` | fold/unfold

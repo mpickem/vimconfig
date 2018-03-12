@@ -22,10 +22,11 @@ Plug 'michaeljsmith/vim-indent-object'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'bronson/vim-trailing-whitespace'
 
 " Experimental Plugins
-Plug 'bronson/vim-trailing-whitespace'
 Plug 'mbbill/undotree'
+Plug 'wincent/loupe'
 
 " Initialize plugin system
 call plug#end()
@@ -237,4 +238,4 @@ nnoremap <F10> :UndotreeToggle<CR>
 
 nnoremap <Leader>zz :FixWhitespace<CR>
 
-" }}
+" }}}
