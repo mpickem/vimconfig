@@ -1,13 +1,14 @@
-" F! -- FZF help
+" F1 -- FZF help
 " F2 -- pastetoggle
 set pastetoggle=<F2>
 " F3 -- turn off/on linenumbers
 nnoremap <F3> :set relativenumber!<CR> :set number!<CR> :GitGutterToggle<CR>
 nnoremap <F5> :setlocal spell<CR> :setlocal spelllang=en<CR> :setlocal spellfile=~/.vim/spell/en.utf-8.add<CR>
 nnoremap <F6> :setlocal spell<CR> :setlocal spelllang=de<CR> :setlocal spellfile=~/.vim/spell/de.utf-8.add<CR>
+" F10 -- undotree
 " Y to be consistent with D and C
 map Y y$
-" Disable Q, since I accidently press it too often
+" Disable Q, since I accidentally press it too often
 map Q <Nop>
 " fold open / close with space
 set foldlevelstart=-

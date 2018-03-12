@@ -1,5 +1,6 @@
 plugged/*
 tmp/*
+*.spl
 !tmp/swp/README
 !tmp/undo/README
 !tmp/backup/README

@@ -116,7 +116,7 @@ let g:rainbow_conf = {
 
 " Light-line {{{
 
-" collapes ff,ft,fe,mode if horizontal window size is too small
+" collapses ff,ft,fe,mode if horizontal window size is too small
 let g:lightline = {
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
@@ -186,12 +186,12 @@ let g:targets_aiAI = 'aiAI' " around inner
 let g:targets_nlNL = 'nN  ' " next last -- e.g. cinB
 let g:targets_pairs = '()b {}c []B <>' " bracket, curly, Bracket
 let g:targets_quotes = '" '' `' " allowed quotes
-let g:targets_seperator = ', . ; : + - = ~ * # / | \ & $' " allowed seperators
+let g:targets_seperator = ', . ; : + - = ~ * # / | \ & $' " allowed separators
 let g:targets_tagTrigger = 't' " tag = t
 let g:targets_argOpening = '[({[]'
 let g:targets_argClosing = '[]})]'
 let g:targets_argTrigger = 'a' " argument = a
-let g:targets_argSeparator = ',' " arguments are only those which are seperated by ,
+let g:targets_argSeparator = ',' " arguments are only those which are separated by ,
 let g:targets_seekRanges = 'cr cb cB lc ac Ac lr rr ll' " only considers targets fully contained in current line
 
 " }}}
@@ -214,6 +214,12 @@ let g:easy_align_delimiters = {
 \     'left_margin':  1,
 \     'right_margin': 1,
 \			'stick_to_left': 0
+\   },
+\ '#': {
+\     'pattern': '#'
+\   },
+\ '!': {
+\     'pattern': '!'
 \   }
 \ }
 
