@@ -74,7 +74,6 @@ nnoremap <leader>f :Files<CR>
 nnoremap <leader>g :GitFiles<CR>
 nnoremap <leader>m :Marks<CR>
 nnoremap <leader>t :Tags<CR>
-" nnoremap <leader>w :Windows<CR>
 nnoremap <leader><space> :BLines<CR>
 nnoremap <F1> :Helptags<CR>
 
@@ -220,6 +219,9 @@ let g:easy_align_delimiters = {
 \   },
 \ '!': {
 \     'pattern': '!'
+\   },
+\ '"': {
+\     'pattern': '"'
 \   }
 \ }
 
@@ -230,3 +232,9 @@ let g:easy_align_delimiters = {
 nnoremap <F10> :UndotreeToggle<CR>
 
 "}}}
+
+" {{{ Whitespace
+
+nnoremap <Leader>zz :FixWhitespace<CR>
+
+" }}

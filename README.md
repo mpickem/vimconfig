@@ -36,7 +36,9 @@
 
 **Shortcut** | **General leader command**
 :----: | ----:
+`Leader` | go to alternate file (`#`)
 `w` | toggle **W**hitespace highlighting
+`zz` | delete all trailing whitespace
 
 #### Control shortcuts
 
@@ -49,7 +51,8 @@
 
 **Shortcut** | **Command**
 :----: | ----:
-`Y` | y$
+`K` | `ddkPJ` (to be consistent with `J`)
+`Y` | `y$`
 `Q` | Nop
 `Space` | fold/unfold
 `F1` | FZF Helptags
@@ -57,4 +60,4 @@
 `F3` | toggle line numbers
 `F5` | local English spellcheck
 `F6` | local German spellcheck
-`F10` | undotree
+`F10` | toggle undotree

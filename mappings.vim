@@ -3,6 +3,7 @@
 set pastetoggle=<F2>
 " F3 -- turn off/on linenumbers
 nnoremap <F3> :set relativenumber!<CR> :set number!<CR> :GitGutterToggle<CR>
+" F5/F6 -- spell checking for english/german
 nnoremap <F5> :setlocal spell<CR> :setlocal spelllang=en<CR> :setlocal spellfile=~/.vim/spell/en.utf-8.add<CR>
 nnoremap <F6> :setlocal spell<CR> :setlocal spelllang=de<CR> :setlocal spellfile=~/.vim/spell/de.utf-8.add<CR>
 " F10 -- undotree
@@ -11,7 +12,6 @@ map Y y$
 " Disable Q, since I accidentally press it too often
 map Q <Nop>
 " fold open / close with space
-set foldlevelstart=-
 nnoremap <Space> za
 vnoremap <Space> za
 " Ctrl L deactivates highlighting after a search
@@ -30,3 +30,9 @@ nnoremap <C-H> <C-W>h
 nnoremap <C-L> <C-W>l
 nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
+" whitespace
+nnoremap <Leader>w :call ToggleWhiteSpace()<CR>
+" Remapping K
+nnoremap <S-K> ddkPJ
+" last buffer
+nnoremap <Leader><Leader> <C-^>
