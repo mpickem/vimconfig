@@ -18,8 +18,8 @@
 `J` | last hunk
 `k` | prev hunk
 `K` | first hunk
-`<` | stage Hunk
-`>`  | undo Hunk
+`<` | stage hunk
+`>`  | undo hunk
 
 
 ###### FZF
@@ -60,4 +60,5 @@
 `F3` | toggle line numbers
 `F5` | local English spellcheck
 `F6` | local German spellcheck
+`F7` | disable local spellcheck
 `F10` | toggle undotree
