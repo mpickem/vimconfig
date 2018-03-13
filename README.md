@@ -31,7 +31,7 @@
 `g` | **G**it files
 `m` | **M**arks
 `t` | **T**ags
-`space` | Lines in the current buffer
+`space` | BLines
 
 
 **Shortcut** | **General leader command**
