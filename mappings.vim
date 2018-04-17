@@ -4,7 +4,7 @@ set pastetoggle=<F2>
 " F3 -- turn off/on linenumbers
 nnoremap <F3> :set relativenumber!<CR> :set number!<CR> :GitGutterToggle<CR>
 " F5/F6 -- spell checking for english/german
-nnoremap <F5> :setlocal spell<CR> :setlocal spelllang=en<CR> :setlocal spellfile=~/.vim/spell/en.utf-8.add<CR>
+nnoremap <F5> :setlocal spell<CR> :setlocal spelllang=en_us<CR> :setlocal spellfile=~/.vim/spell/en.utf-8.add<CR>
 nnoremap <F6> :setlocal spell<CR> :setlocal spelllang=de<CR> :setlocal spellfile=~/.vim/spell/de.utf-8.add<CR>
 nnoremap <F7> :setlocal nospell<CR>
 " F10 -- undotree
