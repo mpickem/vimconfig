@@ -26,3 +26,4 @@ hi SpellRare cterm=underline,bold ctermfg=46
 hi SpellCap cterm=underline,bold ctermfg=46
 hi Search cterm=underline,bold ctermfg=9 ctermbg=none
 hi IncSearch cterm=bold ctermfg=82 ctermbg=16
+hi LineNr ctermfg=240
