@@ -33,7 +33,5 @@ nnoremap <C-J> <C-W>j
 nnoremap <C-K> <C-W>k
 " whitespace
 nnoremap <Leader>w :call ToggleWhiteSpace()<CR>
-" Remapping K
-nnoremap <S-K> ddkPJ
 " last buffer
 nnoremap <Leader><Leader> <C-^>

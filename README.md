@@ -51,7 +51,6 @@
 
 **Shortcut** | **Command**
 :----: | ----:
-`K` | `ddkPJ`
 `Y` | `y$`
 `Q` | Nop
 `Space` | fold/unfold
