@@ -12,5 +12,5 @@ nnoremap <buffer> <leader>q gg0I#! /usr/bin/env python<CR><CR>
   \import matplotlib.pyplot as plt<CR>
   \import h5py<CR>
   \import sys<CR><CR>
-setlocal foldmethod=indent
+" setlocal foldmethod=indent
 setlocal foldlevel=99
