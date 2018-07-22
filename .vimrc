@@ -59,6 +59,8 @@ set t_Co=256 " 256 colors terminal
 set t_ut=    " necessary for tmux (disabling Background Clear Erase BCE)
 set foldlevelstart=-
 
+set iskeyword-=_
+
 if has('persistent_undo')
   if exists('$SUDO_USER')
     set noundofile
