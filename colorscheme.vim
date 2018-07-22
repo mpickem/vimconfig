@@ -9,8 +9,8 @@ let g:onedark_terminal_italics = 0
 colorscheme onedark
 
 " Color changes overwriting the colorscheme basically
-let &colorcolumn="80" " mark 80th column ... apparently has to be after the settings
-hi colorcolumn ctermbg=235
+" let &colorcolumn="80" " mark 80th column ... apparently has to be after the settings
+" hi colorcolumn ctermbg=235
 hi MatchParen ctermbg=000 cterm=bold ctermfg=015
 hi SignifySignAdd cterm=bold
 hi SignifySignDelete cterm=bold ctermfg=196
