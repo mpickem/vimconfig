@@ -173,7 +173,7 @@ let g:EasyMotion_smartcase = 1
 let g:EasyMotion_keys = 'asdfghjklqwertzuiopyxcvbnm,'
 let g:EasyMotion_startofline = 1 " keep cursor column when JK motion
 
-map <Leader>s <Plug>(easymotion-overwin-f)
+" map <Leader>s <Plug>(easymotion-overwin-f)
 map <Leader>d <Plug>(easymotion-overwin-f2)
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>h <Plug>(easymotion-linebackward)

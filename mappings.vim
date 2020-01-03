@@ -35,3 +35,5 @@ nnoremap <C-K> <C-W>k
 nnoremap <Leader>w :call ToggleWhiteSpace()<CR>
 " last buffer
 nnoremap <Leader><Leader> <C-^>
+" submit calculation
+nnoremap <Leader>s :!sbatch %<CR>
