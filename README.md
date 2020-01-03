@@ -6,7 +6,6 @@
 
 **Shortcut** | **EasyMotion command**
 :----: | ----:
-`s` | single key search
 `d` | double key search
 `h/l` | inline movement
 
@@ -38,6 +37,7 @@
 :----: | ----:
 `Leader` | go to alternate file (`#`)
 `n` | remove highlighting
+`s` | submit slurm job
 `w` | toggle **w**hitespace highlighting
 `zz` | delete all trailing whitespace
 
