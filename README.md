@@ -36,8 +36,10 @@
 **Shortcut** | **General leader command**
 :----: | ----:
 `Leader` | go to alternate file (`#`)
+`e` | switch between `.cpp` and `.h` file
 `n` | remove highlighting
 `s` | submit slurm job
+`v` | open `.cpp` or `.h` file in a vertical split
 `w` | toggle **w**hitespace highlighting
 `zz` | delete all trailing whitespace
 

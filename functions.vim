@@ -12,3 +12,29 @@ function! ToggleWhiteSpace()
     let g:whitespace = "1"
   endif
 endfunction
+
+function! SwitchSourceHeader()
+  if (expand ("%:e") == "cpp")
+    :e %:t:r.h
+  else
+    :e %:t:r.cpp
+  endif
+endfunction
+
+function! VsplitSourceHeader()
+  if (expand ("%:e") == "cpp")
+    set splitright
+    :vsplit %:t:r.h
+    set nosplitright
+  else
+    :vsplit %:t:r.cpp
+  endif
+endfunction
+
+function! SplitSourceHeader()
+  if (expand ("%:e") == "cpp")
+    :split %:t:r.h
+  else
+    :split %:t:r.cpp
+  endif
+endfunction
