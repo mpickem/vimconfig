@@ -38,6 +38,6 @@ nnoremap <Leader><Leader> <C-^>
 " submit calculation
 nnoremap <Leader>s :!sbatch %<CR>
 " open header file
-nnoremap <Leader>e :call OpenSourceHeader()<CR>
+nnoremap <Leader>e :call SwitchSourceHeader()<CR>
 " vsplit open header file
 nnoremap <Leader>v :call VsplitSourceHeader()<CR>
