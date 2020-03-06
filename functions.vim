@@ -23,11 +23,11 @@ endfunction
 
 function! VsplitSourceHeader()
   if (expand ("%:e") == "cpp")
-    set splitright
     :vsplit %:t:r.h
-    set nosplitright
   else
+    set splitright
     :vsplit %:t:r.cpp
+    set nosplitright
   endif
 endfunction
 
