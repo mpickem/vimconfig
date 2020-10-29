@@ -3,43 +3,32 @@
 " github.com/junegunn/vim-plug
 call plug#begin('~/.vim/plugged') " directory for plugins
 
-Plug 'vim-scripts/BufOnly.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'bronson/vim-trailing-whitespace'
+Plug 'easymotion/vim-easymotion'
+Plug 'itchyny/lightline.vim' " status line
+Plug 'joshdick/onedark.vim' " colorscheme
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " full fzf -- unix + vim wrapper
 Plug 'junegunn/fzf.vim' " bundle of fzf-based commands in vim like :Tags, :Marks, : Windows etc
+Plug 'junegunn/vim-easy-align'
+Plug 'luochen1990/rainbow' " rainbow brackets
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'tomasr/molokai' " colorscheme
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-commentary'
+Plug 'vim-scripts/BufOnly.vim' " close all buffers except current one :BufOnly
 Plug 'vim-scripts/gnuplot.vim'
 Plug 'vim-scripts/indentpython.vim'
-Plug 'itchyny/lightline.vim'
-Plug 'tomasr/molokai'
-Plug 'scrooloose/nerdtree' ", { 'on': 'NERDTreeToggle' }
-Plug 'joshdick/onedark.vim'
-Plug 'luochen1990/rainbow'
-Plug 'wellle/targets.vim'
-Plug 'tpope/vim-commentary'
-Plug 'easymotion/vim-easymotion'
-Plug 'junegunn/vim-easy-align'
-Plug 'tpope/vim-fugitive'
-Plug 'michaeljsmith/vim-indent-object'
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
-Plug 'bronson/vim-trailing-whitespace'
+Plug 'wellle/targets.vim' " improved target selection
+Plug 'wincent/loupe' " improved search highlighting
 
 " Experimental Plugins
 Plug 'mbbill/undotree'
-Plug 'wincent/loupe'
 
 " Initialize plugin system
 call plug#end()
-
-" NERDTree {{{
-
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-" automatically close tab if NERDTree is the only window left
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-nnoremap <C-N> :NERDTreeToggle<CR>
-
-" }}}
 
 " fzf {{{
 
@@ -174,9 +163,12 @@ let g:EasyMotion_keys = 'asdfghjklqwertzuiopyxcvbnm,'
 let g:EasyMotion_startofline = 1 " keep cursor column when JK motion
 
 " map <Leader>s <Plug>(easymotion-overwin-f)
-map <Leader>d <Plug>(easymotion-overwin-f2)
+" map <Leader>d <Plug>(easymotion-overwin-f2)
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>h <Plug>(easymotion-linebackward)
+map <Leader>d <Plug>(easymotion-sn)
+" map n <Plug>(easymotion-next)
+" map N <Plug>(easymotion-prev)
 
 " }}}
 

@@ -6,7 +6,7 @@
 
 **Shortcut** | **EasyMotion command**
 :----: | ----:
-`d` | double key search
+`d` | interactive search
 `h/l` | inline movement
 
 ###### GitGutter
@@ -42,12 +42,6 @@
 `v` | open `.cpp` or `.h` file in a vertical split
 `w` | toggle **w**hitespace highlighting
 `zz` | delete all trailing whitespace
-
-#### Control shortcuts
-
-**Shortcut** | **Ctrl command**
-:----: | ----:
-`n` | **N**erdtree
 
 #### General mappings
 
