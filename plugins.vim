@@ -68,7 +68,7 @@ nnoremap <leader><space> :BLines<CR>
 nnoremap <F1> :Helptags<CR>
 
 imap <c-x><c-f> <plug>(fzf-complete-path)
-imap <c-x><c-k> <plug>(fzf-complete-buffer-line)
+imap <c-x><c-k> <plug>(fzf-complete-line)
 
 " }}}
 
