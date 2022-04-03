@@ -97,7 +97,7 @@ let g:gitgutter_map_keys = 0 " just use it for the display of changed things
 
 let g:rainbow_active = 1
 let g:rainbow_conf = {
-  \ 'ctermfgs': ['red', 'cyan', 'yellow'],
+  \ 'ctermfgs': ['red', 'cyan', 'yellow', 'darkmagenta'],
   \ 'parentheses': ['start=/(/ end=/)/', 'start=/\[/ end=/\]/', 'start=/{/ end=/}/'],
   \}
 

@@ -36,8 +36,10 @@
 **Shortcut** | **General leader command**
 :----: | ----:
 `Leader` | go to alternate file (`#`)
+`c` | clean run window from run command (python, bash)
 `e` | switch between `.cpp` and `.h` file
 `n` | remove highlighting
+`r` | run current script file (python, bash)
 `s` | submit slurm job
 `v` | open `.cpp` or `.h` file in a vertical split
 `w` | toggle **w**hitespace highlighting

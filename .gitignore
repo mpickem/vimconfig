@@ -4,3 +4,4 @@ tmp/*
 !tmp/swp/README
 !tmp/undo/README
 !tmp/backup/README
+.netrwhist
