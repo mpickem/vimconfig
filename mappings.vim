@@ -20,8 +20,8 @@ vnoremap <Space> za
 " Allow saving of files as sudo when I forgot to start vim using sudo
 cnoremap w!! w !sudo /usr/bin/tee > /dev/null %
 " LineScrolling makes this way more sense (to me)
-nnoremap <C-J> <C-E>
-nnoremap <C-K> <C-Y>
+nnoremap <C-N> <C-E>
+nnoremap <C-M> <C-Y>
 inoremap <leader><leader>t <C-R>=strftime('%d %b %Y %X %Z')<CR>
 " RegEx search -- obsolete
 " nnoremap / /\v
